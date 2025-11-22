@@ -29,7 +29,7 @@ function ProjectCard({ project, index }: { project: typeof projectRegistry[strin
 
   return (
     <motion.div
-      className="group relative rounded-2xl overflow-hidden bg-card/50 border border-border shadow-sm hover:shadow-lg transition-shadow duration-300"
+      className="group relative rounded-2xl overflow-hidden bg-card hover:bg-muted border border-border shadow-sm hover:shadow-lg transition-shadow duration-300"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -112,7 +112,7 @@ function ProjectCard({ project, index }: { project: typeof projectRegistry[strin
 
       {/* Hover Glow Effect */}
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 -z-10"
+        className="rounded-2xl bg-card"
         initial={false}
         transition={{ duration: 0.3 }}
       />
@@ -129,7 +129,7 @@ export function Projects() {
   const filteredProjects = getProjectsByCategory(activeCategory);
 
   return (
-    <section id="projects" className="py-20 px-6 bg-background">
+    <section id='projects' className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -137,10 +137,10 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-5"
         >
-          <h2 className="font-bold font-dancing text-4xl md:text-5xl gradient-text mb-4 ">
-            Projects
+          <h2 className="font-bold font-dancing text-3xl sm:text-4xl md:text-5xl gradient-text mb-4">
+            Featured Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             A selection of projects showcasing my expertise in design and development

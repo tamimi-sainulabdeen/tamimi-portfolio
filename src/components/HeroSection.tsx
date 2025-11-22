@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
   return (
-    <section className="px-6 pt-20 pb-20 bg-background">
+    <section id="home" className="px-6 pt-20 pb-20 bg-background">
       <div className="max-w-7xl mx-auto w-full py-8">
         <div className="grid md:grid-cols-2 gap-5  items-center">
 
@@ -23,7 +23,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
             transition={{ duration: 0.8 }}
           >
             {/* Background Decoration - Tilted LEFT */}
-            <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-xl transform -rotate-4"></div>
+            <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-xl transform -rotate-3"></div>
 
             {/* Main Image */}
             <motion.div
@@ -38,6 +38,8 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
                 height={400}
                 className="w-full h-auto object-cover rounded-lg"
                 priority
+                placeholder="blur"
+                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6/DMclB18bGYbq2tMUg=="
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>

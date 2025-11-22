@@ -19,7 +19,7 @@ export function Experience() {
             Experience
           </h2>
           <p className="text-muted-foreground text-lg">
-            My professional journey in web development
+            My professional journey as a Software Engineer
           </p>
         </motion.div>
 
@@ -31,12 +31,10 @@ export function Experience() {
           transition={{ duration: 0.6 }}
           className="relative group"
         >
-          {/* ADD: Background Effect */}
-          <div className="relative bg-gradient-to-r from-secondary/10 to-primary/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
           {/* ADD: Card hover lift */}
           <motion.div
-            className="relative bg-card/50 border border-border shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl p-8"
+            className="relative bg-card hover:bg-muted border border-secondary/10 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl p-8"
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -76,7 +74,7 @@ export function Experience() {
                     whileHover={{ x: 5 }}
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>2023 - Present</span>
+                    <span>SEP 2024 - NOV 2025</span>
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2 text-sm text-muted-foreground"
@@ -87,7 +85,7 @@ export function Experience() {
                     whileHover={{ x: 5 }}
                   >
                     <MapPin className="w-4 h-4" />
-                    <span>Remote / Kerala, India</span>
+                    <span>Kerala, India</span>
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2 text-sm font-medium text-primary"
@@ -115,7 +113,7 @@ export function Experience() {
                     Frontend Developer
                   </h3>
                   <p className="text-secondary text-lg font-semibold">
-                    Tech Solutions Inc.
+                    Centre for Digital Innovation And Product Developement
                   </p>
                 </motion.div>
 
@@ -126,9 +124,7 @@ export function Experience() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  Developing responsive web applications using modern frameworks and collaborating 
-                  with cross-functional teams to deliver high-quality user experiences. Focused on 
-                  creating intuitive interfaces and optimizing application performance.
+                  Developing responsive web applications using modern frameworks. I collaborate with designers and developers to create user-friendly interfaces and ensure smooth, high-performing digital experiences.
                 </motion.p>
 
                 {/* Technologies */}
@@ -145,12 +141,14 @@ export function Experience() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      "React",
+                      "React.js",
                       "Next.js",
-                      "TypeScript",
-                      "Tailwind CSS",
-                      "Node.js",
+                      "Figma",                   
+                      "Tailwind CSS",  
+                      "JavaScript",
+                      "TypeScript",                   
                       "Git",
+                      "GitHub",
                       "REST APIs",
                       "Framer Motion"
                     ].map((tech, index) => (
@@ -189,11 +187,12 @@ export function Experience() {
                   </h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     {[
-                      "Develop and maintain responsive web applications using React and Next.js",
-                      "Collaborate with designers to implement pixel-perfect user interfaces",
-                      "Optimize applications for maximum speed and scalability",
-                      "Write clean, maintainable, and efficient code",
-                      "Participate in code reviews and team meetings"
+                      "Designed and converted high-fidelity Figma prototypes into responsive, accessible UI screens.",
+                      "Developed scalable web interfaces using React, Next.js, Tailwind CSS, and JavaScript/TypeScript.",
+                      "Built reusable UI components and optimized performance with lazy loading and minimized re-renders.",
+                      "Integrated REST APIs and managed state for smooth data flow.",
+                      "Collaborated with designers and developers, performing code reviews and UI testing.",
+                      "Managed version control using Git/GitHub and followed Agile development practices."
                     ].map((responsibility, index) => (
                       // ADD: List item hover effects
                       <motion.li 
@@ -223,7 +222,7 @@ export function Experience() {
 
             {/* ADD: Hover Glow Effect */}
             <motion.div
-              className="absolute inset-0 rounded-2xl bg-gradient-to-r from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 -z-10"
+              className="rounded-2xl bg-card "
               initial={false}
               transition={{ duration: 0.3 }}
             />

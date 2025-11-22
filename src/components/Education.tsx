@@ -31,12 +31,10 @@ export function Education() {
           transition={{ duration: 0.6 }}
           className="relative group"
         >
-          {/* ADD BACK: Background Effect */}
-          <div className="relative bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
           {/* ADD BACK: Card hover lift */}
           <motion.div
-            className="relative bg-card/50 border border-border shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl p-8"
+            className="relative bg-card hover:bg-muted border border-primary/10 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl p-8"
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -77,7 +75,7 @@ export function Education() {
      
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>2020 - 2024</span>
+                    <span>2019 - 2023</span>
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2 text-sm text-muted-foreground"
@@ -116,7 +114,7 @@ export function Education() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <h3 className="text-2xl font-bold text-foreground mb-2">
-                    Bachelor of Technology in Computer Science
+                    Bachelor of Technology in Computer Science And Engineering
                   </h3>
                   <p className="text-primary text-lg font-semibold">
                     APJ Abdul Kalam Technological University
@@ -130,9 +128,9 @@ export function Education() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  Comprehensive 4-year program focusing on software development, algorithms, 
-                  data structures, and modern web technologies. Gained hands-on experience 
-                  through various projects and coursework.
+                  A comprehensive 4-year professional engineering program focused on core computer science principles,
+                  software development, algorithms, system design, and modern web technologies. 
+                  Gained strong practical experience through academic projects, labs, and hands-on coursework.
                 </motion.p>
 
                 {/* Key Focus Areas */}
@@ -150,11 +148,12 @@ export function Education() {
                   <div className="flex flex-wrap gap-2">
                     {[
                       "Data Structures & Algorithms",
-                      "Web Development",
-                      "Database Systems",
-                      "Software Engineering",
+                      "Web Programming",
+                      "Database Management Systems",
+                      "Operating systems",                   
                       "Computer Networks",
-                      "Machine Learning"
+                      "Machine Learning Fundamentals",
+                      "Software Engineering",
                     ].map((topic, index) => (
                       // ADD BACK: Tag hover effect
                       <motion.span
@@ -191,9 +190,11 @@ export function Education() {
                   </h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     {[
-                      "Completed multiple full-stack web projects",
-                      "Active participant in coding competitions",
-                      "Strong foundation in problem-solving and algorithms"
+                      "Completed academic projects.",
+                      "Consistently maintained strong academic performance throughout the program.",
+                      "Actively participated in workshops, technical training sessions, and extracurricular activities.",
+                      "Contributed to team projects, improving collaboration and problem-solving skills.",
+                      "Received positive feedback from mentors for dedication, discipline, and continuous learning."
                     ].map((achievement, index) => (
                       // ADD BACK: List item hover effects
                       <motion.li 
@@ -223,7 +224,7 @@ export function Education() {
 
             {/* ADD BACK: Hover Glow Effect */}
             <motion.div
-              className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 -z-10"
+              className="rounded-2xl bg-card"
               initial={false}
               transition={{ duration: 0.3 }}
             />

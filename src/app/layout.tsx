@@ -3,10 +3,10 @@ import { Inter, DM_Serif_Display } from "next/font/google";
 import { Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Loader } from "@/components/Loader"; // Add this import
+import { Toaster } from "sonner";
 
 // Modern sans-serif for body text
 const inter = Inter({
@@ -52,7 +52,13 @@ export default function RootLayout({
           <main className="pt-12">
             {children}
           </main>
-          <Toaster />
+          <Toaster 
+            position="top-right"
+            expand={false}
+            richColors
+            closeButton
+            duration={5000}
+          />
           <Footer/>
         </ThemeProvider>
       </body>

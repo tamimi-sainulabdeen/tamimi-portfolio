@@ -7,7 +7,7 @@
   --font-size: 16px;
   
   /* Premium Teal & Purple - Light Mode */
-  --background: #f6f7fb;
+  --background: #f7ffff;
   --foreground: #1a1f36;
   --card: #ffffff;
   --card-foreground: #1a1f36;
@@ -23,7 +23,7 @@
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #e2eef0;
+  --border: #e9f0f1;
   --input: #f1f5f9;
   --input-background: #ffffff;
   --switch-background: #cbd5e1;
@@ -45,7 +45,7 @@
   /* Deep Ocean - Dark Mode */
   --background: #100f11;
   --foreground: #f0f9ff;
-  --card: #1e293b;
+  --card: #131b27;
   --card-foreground: #f0f9ff;
   --popover: #1e293b;
   --popover-foreground: #f0f9ff;

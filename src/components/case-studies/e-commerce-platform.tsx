@@ -8,15 +8,19 @@ export default function ECommercePlatformCaseStudy() {
   return (
     <div className="min-h-screen bg-background pt-20">
       {/* Back Button */}
-      <div className="fixed top-4 left-4 z-50">
+       <div className="fixed top-24 left-30 z-40">
         <Link href="/#projects">
           <motion.div
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-foreground hover:border-primary transition-colors"
-            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/30 backdrop-blur-sm border border-ring/50 text-foreground hover:border-primary transition-all duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{ 
+              scale: 1.05,
+              x: 4
+            }}
             whileTap={{ scale: 0.95 }}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Projects
+            <span className="hidden sm:inline">Back</span>
+            <span className="sm:hidden">Back</span>
           </motion.div>
         </Link>
       </div>

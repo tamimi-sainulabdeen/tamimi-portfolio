@@ -59,7 +59,27 @@ export const projectRegistry: Record<string, ProjectListing> = {
       label: "Know More",
       url: "/projects/sreenarayanaguru-open-university"
     }
+  },
+   'wayanad-township-portal': {
+    slug: "wayanad-township-portal",
+    title: "Wayanad Township Portal",
+    description: "A comprehensive relief and rehabilitation platform for communities affected by the Meppadi landslide, featuring donation management and township planning.",
+    image: "images/wayanad_feature.webp",
+    category: "Web",
+    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Stripe", "Razorpay", "Admin Dashboard"],
+    featured: true,
+    year: "2024",
+    role: "Full-Stack Developer",
+    primaryButton: {
+      label: "Visit Portal",
+      url: "https://wayanadtownship.in"
+    },
+    secondaryButton: {
+      label: "Know More",
+      url: "/projects/wayanad-township-portal"
+    }
   }
+
 };
 
 // Helper functions

@@ -83,30 +83,27 @@ export function About() {
     </motion.div>
 
           {/* Smaller Image Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            <motion.div
+            className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto order-2 md:order-1 mt-5"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            {/* Main Image Container */}
-            <div className="relative max-w-md mx-auto">
               {/* Background Decoration */}
-              <div className="absolute -inset-3 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-2xl transform rotate-4"></div>
+              <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-2xl transform rotate-3"></div>
               
               {/* Main Image */}
               <motion.div
-                className="relative rounded-xl overflow-hidden shadow-lg border border-ring"
+                className="relative rounded-lg overflow-hidden shadow-lg border border-ring"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Image
                   src="/images/tamimi_2.webp"
                   alt="Profile picture"
-                  width={450}
-                  height={550}
-                  className="w-full h-auto object-cover"
+                  width={320}
+                  height={400}
+                  className="w-full h-auto object-cover rounded-lg"
                   priority
                   placeholder="blur" // Add this
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6/DMclB18bGYbq2tMUg=="
@@ -115,7 +112,7 @@ export function About() {
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
-            </div>
+      
           </motion.div>
         </div>
       </div>
