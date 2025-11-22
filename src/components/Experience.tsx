@@ -34,7 +34,7 @@ export function Experience() {
 
           {/* ADD: Card hover lift */}
           <motion.div
-            className="relative bg-card hover:bg-muted border border-secondary/10 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl p-8"
+            className="relative bg-secondary/10 hover:bg-secondary/15 border border-border shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl p-8"
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
