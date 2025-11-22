@@ -2,11 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { getFeaturedProjects } from "@/data/projects";
+import { ChevronLeft, ChevronRight, ExternalLink, FileText } from "lucide-react";
+import { getFeaturedProjects } from "@/data/project-data";
 import { useRouter } from "next/navigation";
-
-
 
 export function FeaturedCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,19 +33,28 @@ export function FeaturedCarousel() {
     setIsAutoPlaying(false);
   };
 
-  const handleViewCaseStudy = () => {
+  const handlePrimaryAction = () => {
     const currentProject = featuredProjects[currentIndex];
-    if (currentProject) {
-      router.push(currentProject.caseStudyUrl);
+    if (currentProject.primaryButton.url.startsWith('http')) {
+      window.open(currentProject.primaryButton.url, '_blank');
+    } else {
+      router.push(currentProject.primaryButton.url);
     }
   };
 
+  const handleSecondaryAction = () => {
+    const currentProject = featuredProjects[currentIndex];
+    router.push(currentProject.secondaryButton.url);
+  };
+
   if (featuredProjects.length === 0) {
-    return null; // Or a fallback UI
+    return null;
   }
 
+  const currentProject = featuredProjects[currentIndex];
+
   return (
-    <section id= 'featured' className="py-20 px-6 bg-background">
+    <section id='featured' className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -59,10 +66,8 @@ export function FeaturedCarousel() {
           <h2 className="font-bold font-dancing text-4xl md:text-5xl gradient-text mb-4">
             Featured Works
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Deep dives into my most impactful work
-          </p>
         </motion.div>
+        
         <div
           className="relative"
           onMouseEnter={() => setIsAutoPlaying(false)}
@@ -74,20 +79,20 @@ export function FeaturedCarousel() {
               <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
+                animate={{ opacity: 2, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
                 className="absolute inset-0"
               >
                 {/* Background Image */}
                 <img
-                  src={featuredProjects[currentIndex].image}
-                  alt={featuredProjects[currentIndex].title}
+                  src={currentProject.image}
+                  alt={currentProject.title}
                   className="w-full h-full object-cover"
                 />
 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/70 to-transparent" />
 
                 {/* Content */}
                 <div className="absolute inset-0 flex items-center">
@@ -99,10 +104,10 @@ export function FeaturedCarousel() {
                       transition={{ delay: 0.2 }}
                     >
                       <span className="text-primary text-sm font-medium">
-                        {featuredProjects[currentIndex].year}
+                        {currentProject.year}
                       </span>
                       <span className="text-muted-foreground text-sm">
-                        {featuredProjects[currentIndex].role}
+                        {currentProject.role}
                       </span>
                     </motion.div>
 
@@ -112,7 +117,7 @@ export function FeaturedCarousel() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
                     >
-                      {featuredProjects[currentIndex].title}
+                      {currentProject.title}
                     </motion.h3>
 
                     <motion.p
@@ -121,23 +126,40 @@ export function FeaturedCarousel() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
                     >
-                      {featuredProjects[currentIndex].description}
+                      {currentProject.description}
                     </motion.p>
 
-                   <motion.button
-                    onClick={handleViewCaseStudy}
-                    className="px-8 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 8px 25px rgba(45, 212, 191, 0.3)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Case Study
-                  </motion.button>
+                    {/* Dynamic Buttons */}
+                    <div className="flex gap-4">
+                      <motion.button
+                        onClick={handlePrimaryAction}
+                        className="flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        whileHover={{ 
+                          scale: 1.05,
+                          boxShadow: "0 8px 25px rgba(45, 212, 191, 0.3)"
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {currentProject.primaryButton.label === "Live Demo" && <ExternalLink className="w-4 h-4" />}
+                        {currentProject.primaryButton.label}
+                      </motion.button>
+                      
+                      <motion.button
+                        onClick={handleSecondaryAction}
+                        className="flex items-center gap-2 px-8 py-3 rounded-xl border border-ring text-foreground hover:border-primary hover:text-primary transition-colors font-medium"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {currentProject.secondaryButton.label === "Case Study" && <FileText className="w-4 h-4" />}
+                        {currentProject.secondaryButton.label}
+                      </motion.button>
+                    </div>
                   </div>
                 </div>
               </motion.div>

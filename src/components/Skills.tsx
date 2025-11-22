@@ -185,12 +185,13 @@ export function Skills() {
             {otherSkillsData.map((skill, index) => (
               <motion.div
                 key={skill.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group p-6 rounded-xl border border-ring/40 dark:border-ring/20 hover:border-primary/40 dark:hover:border-primary/50 transition-all duration-300"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+           
+                className="group p-6 rounded-xl bg-card/30 hover:bg-card/50 border border-ring/40 dark:border-ring/20 hover:border-primary/40 dark:hover:border-primary/50 transition-all duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
@@ -235,7 +236,7 @@ export function Skills() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="group"
               >
-                <div className="flex flex-col items-center p-4 rounded-lg bg-background/60 border border-secondary/5 dark:border border-secondary/30 hover:border-secondary/50 dark:hover:border-secondary/70 hover:bg-background/80 transition-all duration-300 backdrop-blur-sm">
+                <div className="flex flex-col items-center p-4 bg-card/30 rounded-lg bg-background/60 border border-secondary/5 dark:border border-secondary/30 hover:border-secondary/50 dark:hover:border-secondary/70 hover:bg-card/50 transition-all duration-300 backdrop-blur-sm">
                   <div className="p-2 rounded-full bg-secondary/10 group-hover:bg-secondary/20 transition-colors duration-300 mb-2">
                     <skill.icon className="w-5 h-5 text-secondary" />
                   </div>

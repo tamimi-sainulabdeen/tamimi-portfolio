@@ -5,7 +5,9 @@ import { About } from '@/components/About';
 import { Skills } from '@/components/Skills';
 import { Projects } from '@/components/Projects';
 import { FeaturedCarousel } from '@/components/FeaturedCarousal';
+import { Education } from '@/components/Education';
 import { Contact } from '@/components/Contact';
+import { Experience } from '@/components/Experience';
 
 export default function Home() {
   const scrollToProjects = () => {
@@ -23,6 +25,8 @@ export default function Home() {
       <Skills />     
       <FeaturedCarousel /> 
       <Projects  />
+      <Experience/>
+      <Education/>
       <Contact/>
     </>
   )

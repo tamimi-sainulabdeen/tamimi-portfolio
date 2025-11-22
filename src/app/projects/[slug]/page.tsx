@@ -1,17 +1,11 @@
-// app/projects/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-import { getProjectBySlug, getAllProjectSlugs } from '@/data/projects';
 import dynamic from 'next/dynamic';
+import { getAllProjectSlugs, getProjectListing } from '@/data/project-data';
 
 // Map slugs to their dynamic imports
 const caseStudyImports = {
   'e-commerce-platform': () => import('@/components/case-studies/e-commerce-platform'),
-  'sreenarayanaguru-open-university' : () => import('@/components/case-studies/sreenarayanaguru-open-university')
-  // 'mobile-banking-app': () => import('@/components/case-studies/mobile-banking-app'),
-  // 'saas-dashboard': () => import('@/components/case-studies/default'), // Fallback
-  // 'health-fitness-app': () => import('@/components/case-studies/default'),
-  // 'design-system': () => import('@/components/case-studies/default'),
-  // 'real-estate-portal': () => import('@/components/case-studies/default'),
+  'sreenarayanaguru-open-university': () => import('@/components/case-studies/sreenarayanaguru-open-university')
 } as const;
 
 // Generate static params for all projects
@@ -25,7 +19,7 @@ export async function generateStaticParams() {
 // Generate metadata for each project
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = getProjectListing(slug);
   
   if (!project) {
     return {
@@ -41,12 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProjectCaseStudy({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
-
-  if (!project) {
-    notFound();
-  }
-
+  
   // Get the dynamic import function for this slug
   const importFunction = caseStudyImports[slug as keyof typeof caseStudyImports];
 
@@ -74,4 +63,4 @@ function CaseStudySkeleton() {
       </div>
     </div>
   );
-} 
+}

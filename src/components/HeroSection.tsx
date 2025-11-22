@@ -13,31 +13,37 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
   return (
     <section className="px-6 pt-20 pb-20 bg-background">
       <div className="max-w-7xl mx-auto w-full py-8">
-        <div className="grid md:grid-cols-2 gap-6  items-center">
+        <div className="grid md:grid-cols-2 gap-5  items-center">
 
           {/* ---------------- IMAGE (shown second on mobile) ---------------- */}
-          <motion.div
-            className="relative w-full max-w-sm md:max-w-md lg:max-w-lg mx-auto order-2 md:order-1 md:mt-5 "
+         <motion.div
+            className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto order-2 md:order-1 mt-5"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Glow */}
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/30 blur-3xl rounded-full"></div>
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-secondary/30 blur-3xl rounded-full"></div>
+            {/* Background Decoration - Tilted LEFT */}
+            <div className="absolute -inset-2 bg-gradient-to-br from-primary/40 to-secondary/40 rounded-xl transform -rotate-4"></div>
 
-            {/* Image */}
-            <div className="relative rounded-4xl overflow-hidden shadow-xl border border-white/10 backdrop-blur-xl bg-background/40">
+            {/* Main Image */}
+            <motion.div
+              className="relative rounded-lg overflow-hidden shadow-lg border border-ring"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
               <Image
                 src="/images/tamimi_1.webp"
                 alt="Tamimi Sainulabdeen"
-                width={400}
-                height={500}
-                className="w-full h-auto object-cover rounded-4xl"
+                width={320}
+                height={400}
+                className="w-full h-auto object-cover rounded-lg"
                 priority
               />
-            </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </motion.div>
           </motion.div>
+
 
           {/* ---------------- CONTENT (shown first on mobile) ---------------- */}
           <motion.div
@@ -59,26 +65,25 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
             </p>
              {/* Status Tags */}
          <div className="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
-  <span
-    className="px-4 py-1.5 rounded-full text-sm font-medium bg-background text-primary border border-primary/30 backdrop-blur-md flex items-center gap-2"
-  >
-    <Target className="w-4 h-4" />
-    Actively Seeking Opportunities
-  </span>
+            <span
+              className="px-4 py-1.5 rounded-full text-sm font-medium bg-background text-secondary border border-secondary/50 backdrop-blur-md flex items-center gap-2"
+            >
+              <Target className="w-4 h-4" />
+              Actively Seeking Opportunities
+            </span>
 
-  <span
-    className="px-4 py-1.5 rounded-full text-sm font-medium bg-background text-secondary border border-secondary/30 backdrop-blur-md flex items-center gap-2"
-  >
-    <Globe className="w-4 h-4" />
-    Open to Relocation
-  </span>
-</div>
+            <span
+              className="px-4 py-1.5 rounded-full text-sm font-medium bg-background text-primary border border-primary/50 backdrop-blur-md flex items-center gap-2"
+            >
+              <Globe className="w-4 h-4" />
+              Open to Relocation
+            </span>
+          </div>
 
 
 
             <p className="text-muted-foreground max-w-2xl text-base lg:text-lg leading-relaxed mx-auto lg:mx-0">
-              Crafting thoughtful, user-centered digital experiences that look great
-              and feel effortless to use.
+              Crafting thoughtful, user-centered digital experiences that look visually appealing and feel effortless to use.
             </p>
 
             {/* CTA Buttons */}

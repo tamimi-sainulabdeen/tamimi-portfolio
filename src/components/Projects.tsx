@@ -5,111 +5,31 @@ import { ExternalLink, FileText } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Badge } from "./ui/badge";
-
-interface Project {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  category: "Web" | "Mobile" | "UI/UX";
-  tags: string[];
-  liveUrl: string;
-  caseStudyUrl: string;
-}
-
-const projects: Project[] = [
-  {
-    slug: "e-commerce-platform",
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured online shopping platform with seamless checkout, inventory management, and personalized recommendations.",
-    image:
-      "https://images.unsplash.com/photo-1627634771121-fa3db5779f60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHByb2plY3R8ZW58MXx8fHwxNzYyNzUxNTA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Web",
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    liveUrl: "#",
-    caseStudyUrl: "/projects/e-commerce-platform",
-  },
-  {
-    slug: "sreenarayanaguru-open-university",
-    title: "Sreenarayanaguru Open University (SGOU)",
-    description:
-      "A state open university in Kerala that provides flexible higher education opportunities.",
-    image:
-      "/images/sgou_1.webp",
-    category: "Web",
-    tags: ["Bootstrap", "MDB", "JavaScript", "CSS"],
-    liveUrl: "https://erp.sgou.ac.in/login-candidate",
-    caseStudyUrl: "/projects/sreenarayanaguru-open-university",
-  },
-  {
-    slug: "mobile-banking-app",
-    title: "Mobile Banking App",
-    description:
-      "Intuitive mobile banking experience with biometric security, instant transfers, and financial insights dashboard.",
-    image:
-      "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYyNzk1OTY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Mobile",
-    tags: ["React Native", "Firebase", "Figma"],
-    liveUrl: "#",
-    caseStudyUrl: "#",
-  },
-  {
-    slug: "saas-dashboard",
-    title: "SaaS Dashboard",
-    description:
-      "Comprehensive analytics dashboard for SaaS businesses with real-time data visualization and team collaboration tools.",
-    image:
-      "https://images.unsplash.com/photo-1629494893504-d41e26a02631?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMHV4JTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2Mjg1MjY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Web",
-    tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    liveUrl: "#",
-    caseStudyUrl: "#",
-  },
-  {
-     slug: "health-fitness-app",
-    title: "Health & Fitness App",
-    description:
-      "Mobile app for tracking workouts, nutrition, and wellness goals with AI-powered coaching recommendations.",
-    image:
-      "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzYyNzk1OTY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Mobile",
-    tags: ["React Native", "TensorFlow", "Firebase"],
-    liveUrl: "#",
-    caseStudyUrl: "#",
-  },
-  {
-    slug: "design-system",
-    title: "Design System",
-    description:
-      "Comprehensive design system with reusable components, documentation, and accessibility guidelines for enterprise apps.",
-    image:
-      "https://images.unsplash.com/photo-1629494893504-d41e26a02631?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1aSUyMHV4JTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc2Mjg1MjY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "UI/UX",
-    tags: ["Figma", "Storybook", "React", "TypeScript"],
-    liveUrl: "#",
-    caseStudyUrl: "#",
-  },
-  {
-    slug: "real-estate-portal",
-    title: "Real Estate Portal",
-    description:
-      "Modern property listing platform with virtual tours, mortgage calculator, and AI-powered property matching.",
-    image:
-      "https://images.unsplash.com/photo-1627634771121-fa3db5779f60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHByb2plY3R8ZW58MXx8fHwxNzYyNzUxNTA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Web",
-    tags: ["Next.js", "Three.js", "Maps API", "Tailwind"],
-    liveUrl: "#",
-    caseStudyUrl: "#",
-  },
-];
+import { getProjectsByCategory, projectRegistry } from "@/data/project-data";
 
 const categories = ["All", "Web", "Mobile", "UI/UX"] as const;
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index }: { project: typeof projectRegistry[string]; index: number }) {
+  // Determine button labels based on project data
+  const getPrimaryButtonLabel = () => {
+    // You can customize this logic based on your project data
+    if (project.primaryButton.url === "#" || !project.primaryButton.url) {
+      return "Demo";
+    }
+    return "Visit Website";
+  };
+
+  const getSecondaryButtonLabel = () => {
+    // You can customize this logic based on your project data
+    return "Know More";
+  };
+
+  const primaryButtonLabel = getPrimaryButtonLabel();
+  const secondaryButtonLabel = getSecondaryButtonLabel();
+
   return (
     <motion.div
-      className="group relative rounded-2xl overflow-hidden bg-card border border-border"
+      className="group relative rounded-2xl overflow-hidden bg-card/50 border border-border shadow-sm hover:shadow-lg transition-shadow duration-300"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -129,7 +49,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
       </div>
 
       {/* Content */}
@@ -165,27 +84,29 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         {/* Bottom Actions */}
         <div className="flex gap-3 pt-2">
           <motion.a
-            href={project.liveUrl}
+            href={project.primaryButton.url}
             className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm font-medium flex-1"
             whileHover={{ 
               scale: 1.02,
               boxShadow: "0 4px 12px rgba(45, 212, 191, 0.3)"
             }}
             whileTap={{ scale: 0.98 }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <ExternalLink className="w-4 h-4" />
-            Live Demo
+            {primaryButtonLabel}
           </motion.a>
-        <Link href={project.caseStudyUrl}>
-          <motion.div
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-border text-foreground hover:border-primary hover:text-primary transition-colors text-sm font-medium flex-1"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <FileText className="w-4 h-4" />
-            Case Study
-          </motion.div>
-        </Link>
+          <Link href={project.secondaryButton.url}>
+            <motion.div
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-border text-foreground hover:border-primary hover:text-primary transition-colors text-sm font-medium flex-1"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FileText className="w-4 h-4" />
+              {secondaryButtonLabel}
+            </motion.div>
+          </Link>
         </div>
       </div>
 
@@ -204,10 +125,8 @@ export function Projects() {
     (typeof categories)[number]
   >("All");
 
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  // Use the helper function from data/projects.ts
+  const filteredProjects = getProjectsByCategory(activeCategory);
 
   return (
     <section id="projects" className="py-20 px-6 bg-background">
@@ -220,8 +139,8 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-bold font-dancing text-4xl md:text-5xl gradient-text mb-4">
-           Projects
+          <h2 className="font-bold font-dancing text-4xl md:text-5xl gradient-text mb-4 ">
+            Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             A selection of projects showcasing my expertise in design and development
@@ -263,7 +182,7 @@ export function Projects() {
         >
           {filteredProjects.map((project, index) => (
             <ProjectCard 
-              key={`${project.title}-${activeCategory}`} 
+              key={project.slug}
               project={project} 
               index={index} 
             />

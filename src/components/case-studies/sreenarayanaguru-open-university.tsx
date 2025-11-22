@@ -33,13 +33,10 @@ export default function SGOUCaseStudy() {
             className="text-center"
           >
             <h1 className="font-bold text-4xl md:text-6xl gradient-text mb-6">
-              Sreenarayanaguru Open University
+              Sreenarayanaguru Open University (SGOU)
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              Redesigned the student dashboard with a modern, responsive UI and added new features 
-              to improve usability, navigation, and the overall student experience for Kerala's first state open university.
-            </p>
-            
+              Redesigned the student dashboard with modern, responsive UI and enhanced features to improve usability, navigation, and overall student experience for Kerala's first state open university website.</p>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               <span className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm">
                 Bootstrap 5
@@ -287,7 +284,7 @@ export default function SGOUCaseStudy() {
               <div>
                 <div className="rounded-3xl overflow-hidden border border-border shadow-2xl">
                   <Image
-                    src="/images/sgou_calendar.webp"
+                    src="/images/sgou_4.webp"
                     alt="Academic Calendar UI"
                     width={600}
                     height={400}

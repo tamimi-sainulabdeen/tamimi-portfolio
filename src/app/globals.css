@@ -249,6 +249,13 @@ html {
   background-clip: text;
 }
 
+/* Or be more specific */
+.creative-text,
+.gradient-text,
+.gradient-text {
+  line-height: 1.2;
+}
+
 /* Signature style */
 .signature {
   font-family: var(--font-dancing), cursive;
