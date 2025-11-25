@@ -34,7 +34,7 @@ export function Experience() {
 
           {/* ADD: Card hover lift */}
           <motion.div
-            className="relative bg-secondary/10 hover:bg-secondary/15 border border-border shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl p-8"
+            className="relative bg-secondary/10 hover:bg-secondary/15 border border-border shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl p-8"
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -74,7 +74,7 @@ export function Experience() {
                     whileHover={{ x: 5 }}
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>SEP 2024 - NOV 2025</span>
+                    <span>2024 - 2025</span>
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2 text-sm text-muted-foreground"
@@ -155,7 +155,7 @@ export function Experience() {
                       // ADD: Tag hover effect
                       <motion.span
                         key={index}
-                        className="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm border border-secondary/20"
+                        className="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm border border-secondary/40"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}

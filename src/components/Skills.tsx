@@ -3,15 +3,14 @@
 import { motion } from "framer-motion";
 import { 
   SiNextdotjs, SiReact, SiTypescript, SiJavascript,
-  SiFigma, SiBootstrap, SiTailwindcss, SiHtml5, SiCss3,
-  SiNodedotjs, SiMongodb, SiGit, SiGithub, SiVercel, SiPostman
+  SiFigma, SiBootstrap, SiTailwindcss, SiHtml5, SiGit, SiGithub, SiPostman
 } from "react-icons/si";
 
 import { 
   Users, MessageCircle, Clock, Target, 
   Lightbulb, Search, Zap, BookOpen, Code2,
-  Palette, Cpu, Workflow, Bug, Smartphone, Globe,
-  Heart, Brain, Calendar, Sparkles, TrendingUp
+  Heart, Brain, Calendar, Sparkles, TrendingUp,
+  Workflow, Smartphone, Boxes, PlugZap, Bug, Globe, Gauge, TestTube, Palette
 } from "lucide-react";
 
 const skillsData = [
@@ -53,38 +52,58 @@ const skillsData = [
   },
 ];
 
+
 const otherSkillsData = [
+
+  {
+    icon: Palette,
+    title: "UI/UX Practices",
+    description: "Applying layout, spacing, hierarchy, and accessibility principles."
+  },
   {
     icon: Workflow,
     title: "State Management",
-    description: "Managing application state efficiently"
+    description: "Ensuring UI data flows smoothly and updates consistently."
   },
   {
     icon: Smartphone,
     title: "Responsive Design",
-    description: "Creating mobile-first experiences"
+    description: "Creating layouts that adapt beautifully to all screen sizes."
   },
   {
-    icon: Users,
-    title: "User Flows",
-    description: "Designing intuitive user journeys"
+    icon: Boxes,
+    title: "Component Architecture",
+    description: "Building modular, reusable, and maintainable UI components."
   },
   {
-    icon: Cpu,
-    title: "API Integration",
-    description: "Connecting frontend to backend services"
+    icon: PlugZap,
+    title: "API Handling",
+    description: "Integrating APIs, processing responses, and reflecting the data accurately in the UI."
   },
   {
     icon: Bug,
     title: "Debugging",
-    description: "Identifying and fixing issues"
+    description: "Identifying and fixing issues using browser DevTools and systematic debugging methods."
   },
   {
     icon: Globe,
-    title: "Cross Browser",
-    description: "Ensuring compatibility across browsers"
+    title: "Cross-Browser Support",
+    description: "Ensuring consistent UI behavior across modern browsers."
   },
+  {
+    icon: Gauge,
+    title: "Performance Optimization",
+    description: "Improving front-end performance with memoization, lazy loading, and image optimization."
+  },
+  {
+    icon: TestTube,
+    title: "Basic Testing",
+    description: "Ensuring the UI, core features, and edge cases behave as expected across different scenarios."
+  },
+ 
 ];
+
+
 
 const softSkillsData = [
   { icon: MessageCircle, title: "Effective Communication" },
@@ -93,8 +112,9 @@ const softSkillsData = [
   { icon: Heart, title: "Teamwork" },
   { icon: Brain, title: "Adaptability" },
   { icon: Search, title: "Attention to Detail" },
-    { icon: Sparkles, title: "Creativity" },
+  { icon: Users, title: "Collaboration" },
   { icon: TrendingUp, title: "Continuous Learning" },
+
 ];
 
 export function Skills() {
@@ -190,7 +210,7 @@ export function Skills() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05, y: -2 }}
            
-                className="group p-6 rounded-xl bg-card border border-ring/40 dark:border-ring/20 hover:border-primary/40 dark:hover:border-primary/50 transition-all duration-300"
+                className="group p-4 rounded-xl bg-card border border-ring/40 dark:border-ring/20 hover:border-primary/40 dark:hover:border-primary/50 transition-all duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
@@ -224,7 +244,7 @@ export function Skills() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
             {softSkillsData.map((skill, index) => (
               <motion.div
                 key={skill.title}

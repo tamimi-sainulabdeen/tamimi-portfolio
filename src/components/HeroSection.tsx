@@ -27,7 +27,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
 
             {/* Main Image */}
             <motion.div
-              className="relative rounded-lg overflow-hidden shadow-lg border border-ring"
+              className="relative rounded-lg overflow-hidden shadow-lg border border-ring "
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >

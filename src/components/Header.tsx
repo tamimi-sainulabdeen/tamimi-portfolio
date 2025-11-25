@@ -110,7 +110,7 @@ export function Header() {
           </motion.button>
 
           {/* Desktop Navigation - Improved responsive gap */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 flex-1 justify-center">
+          <nav className="hidden md:flex items-center gap-3 lg:gap-3 xl:gap-5 flex-1 justify-center">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.href}

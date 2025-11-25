@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Code, Layout, Smartphone, Palette, Component, Zap, X, ChevronLeft, ChevronRight, CreditCard, Shield, FormInput, Globe } from "lucide-react";
+import { ArrowLeft, ExternalLink, Code, Layout, Smartphone, Palette, Component, Zap, X, ChevronLeft, ChevronRight, CreditCard, Shield, FormInput, Globe, Users, BarChart3, FileText, Home, Download, Receipt, CheckSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -97,12 +97,12 @@ export default function WayanadTownshipPortalCaseStudy() {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-background pt-5">
       {/* Back Button */}
-     <div className="fixed top-24 left-30 z-40">
+     <div className="fixed top-20 md:top-24 left-6 z-40">
         <Link href="/#projects">
           <motion.div
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/30 backdrop-blur-sm border border-ring/50 text-foreground hover:border-primary transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="flex items-center text-sm gap-2 px-4 py-2 rounded-xl bg-primary/90 backdrop-blur-sm border border-ring text-foreground hover:border-primary transition-all duration-300 shadow-md hover:shadow-lg"
             whileHover={{ 
               scale: 1.05,
               x: 4
@@ -171,46 +171,50 @@ export default function WayanadTownshipPortalCaseStudy() {
         </motion.div>
       )}
 
-      {/* Hero Section */}
-      <section className="relative py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero Section with Background Image */}
+      <section className="relative py-20 px-6 min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/wayanad_banner.webp" // Replace with your actual banner image path
+            alt="Wayanad Township Portal Banner"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-black/30 dark:bg-black/50" />
+          {/* Additional Dark Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="font-bold text-4xl md:text-6xl gradient-text mb-6">
+            <motion.h1 
+              className="font-bold text-4xl md:text-6xl text-white mb-6 drop-shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               Wayanad Township Portal
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              A comprehensive relief and rehabilitation platform built to support communities affected by the Meppadi landslide. 
-              Connecting hope with help through technology.
-            </p>
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-white/90 max-w-4xl mx-auto mb-8 leading-relaxed drop-shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+             A rehabilitation platform for the Meppadi landslide crisis, equipped with role-specific dashboards,
+             seamless payment handling, and user-friendly workflows that enhance clarity and efficiency in relief operations.
+            </motion.p>
             
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm">
-                Next.js 14
-              </span>
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm">
-                TypeScript
-              </span>
-              <span className="px-4 py-2 rounded-full bg-secondary/10 text-secondary border border-secondary/20 text-sm">
-                Tailwind CSS
-              </span>
-              <span className="px-4 py-2 rounded-full bg-secondary/10 text-secondary border border-secondary/20 text-sm">
-                Responsive Design
-              </span>
-              <span className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm">
-                i18n Internationalization
-              </span>
-              <span className="px-4 py-2 rounded-full bg-secondary/10 text-secondary border border-secondary/20 text-sm">
-                Form Management
-              </span>
-            </div>
-
             <motion.a
-              href="https://wayanadtownship.in"
+              href="https://wayanadtownship.kerala.gov.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold"
@@ -221,10 +225,30 @@ export default function WayanadTownshipPortalCaseStudy() {
               whileTap={{ scale: 0.95 }}
             >
               <ExternalLink className="w-5 h-5" />
-              View Live Project
+              Visit Website
             </motion.a>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
+          >
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-white/50 rounded-full mt-2"
+            />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Project Overview */}
@@ -240,49 +264,61 @@ export default function WayanadTownshipPortalCaseStudy() {
               <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  As a frontend developer, I designed and developed the user interfaces for a disaster relief platform 
-                  supporting the Meppadi landslide rehabilitation efforts. Created responsive interfaces, 
-                  component libraries, and user experiences for multiple user roles.
+                 As a frontend developer, I contributed to building the user interface for this disaster-relief platform,
+                 creating role-based screens, forms, and user flows that support different stakeholders.
                 </p>
                 <p>
-                  Focused on creating intuitive designs that work seamlessly across all devices 
-                  while maintaining performance and accessibility standards.
+                 I worked on UI/UX implementation, component development, multi-language support, payment pages, 
+                 and data-driven interfaces to ensure a smooth and accessible experience for users.
                 </p>
               </div>
 
               {/* Role Focus */}
-              <motion.div
+             <motion.div
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 whileHover="hover"
                 className="mt-8 p-6 rounded-2xl bg-background border border-border shadow-sm"
-              >
-                <h4 className="text-lg font-semibold text-primary mb-3">My Role: Frontend Developer</h4>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Palette className="w-4 h-4 text-primary" />
-                      <span>UI/UX Design</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Layout className="w-4 h-4 text-primary" />
-                      <span>Component Development</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Smartphone className="w-4 h-4 text-primary" />
-                      <span>Responsive Design</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-primary" />
-                      <span>Performance Optimization</span>
-                    </div>
-                  </div>
+                >
+                <h4 className="text-lg font-semibold text-primary mb-3">
+                    My Role: Frontend Developer
+                </h4>
+
+            <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                    <Palette className="w-4 h-4 text-primary" />
+                    <span>UI/UX Implementation</span>
                 </div>
-              </motion.div>
+                <div className="flex items-center gap-2">
+                    <Layout className="w-4 h-4 text-primary" />
+                    <span>Component Development</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-primary" />
+                    <span>Multi-role Dashboards</span>
+                </div>
+                </div>
+
+                <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                    <Smartphone className="w-4 h-4 text-primary" />
+                    <span>Responsive Design</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-primary" />
+                    <span>Performance Optimization</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <CheckSquare className="w-4 h-4 text-primary" />
+                    <span>Form Handling & Validation</span>
+                </div>
+                </div>
+            </div>
+            </motion.div>
+
             </motion.div>
 
             <motion.div
@@ -326,7 +362,7 @@ export default function WayanadTownshipPortalCaseStudy() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 "
           >
             {screenshots.map((screenshot, index) => (
               <motion.div
@@ -371,9 +407,9 @@ export default function WayanadTownshipPortalCaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Key Features & Technical Challenges</h2>
+            <h2 className="text-3xl font-bold mb-4">Key Features & Technical Implementation</h2>
             <p className="text-muted-foreground">
-              Complex frontend features demonstrating problem-solving and technical expertise
+              Comprehensive frontend features showcasing full-stack frontend capabilities
             </p>
           </motion.div>
 
@@ -384,7 +420,7 @@ export default function WayanadTownshipPortalCaseStudy() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 gap-8"
           >
-            {/* Payment System */}
+            {/* Multi-Role Dashboard System */}
             <motion.div
               variants={cardVariants}
               whileHover="hover"
@@ -392,21 +428,21 @@ export default function WayanadTownshipPortalCaseStudy() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 rounded-lg bg-primary/10">
-                  <CreditCard className="w-6 h-6 text-primary" />
+                  <Users className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold">Payment System Interface</h3>
+                <h3 className="text-2xl font-semibold">Multi-Role Dashboard Ecosystem</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Developed the frontend integration for multiple payment gateways with secure 
-                form handling and responsive checkout experience.
+                Designed and developed distinct, role-specific dashboards for Administrators, 
+                Contractors, and Sponsors with tailored functionality and data access.
               </p>
               <div className="space-y-3">
                 {[
-                  "Payment form validation and error handling",
-                  "Responsive checkout interface for both gateways",
-                  "Loading states and payment status indicators",
-                  "Mobile-optimized payment flow",
-                  "Secure iframe integration for payment processing"
+                  "Admin Dashboard with full system control and analytics",
+                  "Contractor Dashboard for rehabilitation project management",
+                  "Sponsor Dashboard for contribution tracking and impact reports",
+                  "Role-based UI components and access control views",
+                  "Export functionalities for data tables and reports"
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
@@ -416,7 +452,7 @@ export default function WayanadTownshipPortalCaseStudy() {
               </div>
             </motion.div>
 
-            {/* Admin Dashboard */}
+            {/* Payment & Donation System */}
             <motion.div
               variants={cardVariants}
               whileHover="hover"
@@ -424,21 +460,21 @@ export default function WayanadTownshipPortalCaseStudy() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 rounded-lg bg-secondary/10">
-                  <Shield className="w-6 h-6 text-secondary" />
+                  <CreditCard className="w-6 h-6 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-semibold">Admin Dashboard Interface</h3>
+                <h3 className="text-2xl font-semibold">Payment & Donation Management</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Built comprehensive admin interface with data visualization, 
-                user management components, and responsive layout.
+                Comprehensive payment system supporting multiple donation types with 
+                secure processing and real-time status tracking.
               </p>
               <div className="space-y-3">
                 {[
-                  "Role-based UI components and access views",
-                  "Data visualization with charts and statistics",
-                  "Responsive data tables with sorting and filtering",
-                  "Bulk action interfaces and modal workflows",
-                  "Real-time notification system"
+                  "Monetary donations with multiple payment gateways",
+                  "House donation system for physical asset contributions",
+                  "Payment history and status tracking interfaces",
+                  "Transaction history tables with filtering",
+                  "Certificate and receipt template generation"
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full flex-shrink-0" />
@@ -448,7 +484,7 @@ export default function WayanadTownshipPortalCaseStudy() {
               </div>
             </motion.div>
 
-            {/* Form Management */}
+            {/* Data Visualization & Reporting */}
             <motion.div
               variants={cardVariants}
               whileHover="hover"
@@ -456,21 +492,21 @@ export default function WayanadTownshipPortalCaseStudy() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 rounded-lg bg-primary/10">
-                  <FormInput className="w-6 h-6 text-primary" />
+                  <BarChart3 className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold">Dynamic Form Management</h3>
+                <h3 className="text-2xl font-semibold">Data Visualization & Analytics</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Developed sophisticated form system with conditional logic, 
-                file uploads, and multi-step workflows for various application types.
+                Advanced data visualization using React ECharts for insightful analytics 
+                and comprehensive reporting capabilities.
               </p>
               <div className="space-y-3">
                 {[
-                  "Conditional field rendering based on user inputs",
-                  "File upload interface with drag-and-drop",
-                  "Multi-step form wizard with progress tracking",
-                  "Real-time validation and error handling",
-                  "Auto-save functionality for long forms"
+                  "Interactive charts and graphs with React ECharts",
+                  "Real-time data visualization dashboards",
+                  "Export functionality for reports and certificates",
+                  "PDF generation for receipts and documents",
+                  "Responsive data tables with sorting and pagination"
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
@@ -480,7 +516,71 @@ export default function WayanadTownshipPortalCaseStudy() {
               </div>
             </motion.div>
 
-            {/* Language Toggle */}
+            {/* Dynamic Form Management */}
+            <motion.div
+              variants={cardVariants}
+              whileHover="hover"
+              className="p-8 rounded-2xl bg-background border border-border shadow-sm"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 rounded-lg bg-secondary/10">
+                  <FormInput className="w-6 h-6 text-secondary" />
+                </div>
+                <h3 className="text-2xl font-semibold">Dynamic Form Management</h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Sophisticated form system with conditional logic and multi-step workflows 
+                for various application types and user scenarios.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "Conditional rendering of form fields based on user inputs",
+                  "Multi-step form wizard with progress tracking",
+                  "File upload interface with drag-and-drop support",
+                  "Real-time validation and error handling",
+                  "Auto-save functionality for long forms"
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-secondary rounded-full flex-shrink-0" />
+                    <span className="text-foreground">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Website & Content Management */}
+            <motion.div
+              variants={cardVariants}
+              whileHover="hover"
+              className="p-8 rounded-2xl bg-background border border-border shadow-sm"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Home className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold">Website & Content Management</h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Complete website development with engaging content sections and 
+                essential informational pages for user trust and transparency.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "Homepage design with hero section and gallery",
+                  "Media gallery with categorization and filtering",
+                  "Privacy policy and cookie policy pages",
+                  "FAQ section and user agreement pages",
+                  "Responsive layout optimized for all devices"
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                    <span className="text-foreground">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Internationalization Support */}
             <motion.div
               variants={cardVariants}
               whileHover="hover"
@@ -493,8 +593,8 @@ export default function WayanadTownshipPortalCaseStudy() {
                 <h3 className="text-2xl font-semibold">Multi-language Support</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Implemented internationalization (i18n) using react-i18next for seamless 
-                language switching between English and Malayalam to serve local communities.
+                Full internationalization support to serve local communities in their 
+                preferred language with seamless switching capabilities.
               </p>
               <div className="space-y-3">
                 {[
@@ -526,7 +626,7 @@ export default function WayanadTownshipPortalCaseStudy() {
           >
             <h2 className="text-3xl font-bold mb-4">Frontend Implementation</h2>
             <p className="text-muted-foreground">
-              Modern frontend architecture and design system implementation
+              Modern frontend architecture and comprehensive design system
             </p>
           </motion.div>
 
@@ -549,14 +649,34 @@ export default function WayanadTownshipPortalCaseStudy() {
                 description: "Consistent styling with Tailwind CSS"
               },
               {
-                icon: Smartphone,
-                title: "Responsive Design",
-                description: "Mobile-first responsive layouts"
+                icon: BarChart3,
+                title: "Data Visualization",
+                description: "React ECharts integration"
               },
               {
                 icon: Zap,
                 title: "Performance",
                 description: "Optimized images and lazy loading"
+              },
+              {
+                icon: Users,
+                title: "Multi-role System",
+                description: "Role-based access and views"
+              },
+              {
+                icon: FileText,
+                title: "Document Generation",
+                description: "PDF certificates and receipts"
+              },
+              {
+                icon: Download,
+                title: "Export Functionality",
+                description: "Data export and reporting"
+              },
+              {
+                icon: Smartphone,
+                title: "Responsive Design",
+                description: "Mobile-first responsive layouts"
               }
             ].map((tech, index) => (
               <motion.div
@@ -583,47 +703,56 @@ export default function WayanadTownshipPortalCaseStudy() {
             whileHover="hover"
             className="bg-card border border-border rounded-2xl p-8 shadow-sm"
           >
-            <h3 className="text-2xl font-bold mb-6">Frontend Features Developed</h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <h3 className="text-2xl font-bold mb-6">Comprehensive Feature Development</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-primary">UI Components</h4>
+                <h4 className="text-lg font-semibold text-primary">Dashboard & UI</h4>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span>Custom dashboard with data visualization cards</span>
+                    <span>Admin, Contractor, Sponsor dashboards</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span>Responsive navigation and sidebar components</span>
+                    <span>Data visualization with React ECharts</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span>Form components with validation states</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span>Modal and overlay components</span>
+                    <span>Export functionality for data tables</span>
                   </li>
                 </ul>
               </div>
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-secondary">User Experience</h4>
+                <h4 className="text-lg font-semibold text-secondary">Payment & Donation</h4>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                    <span>Mobile-optimized responsive layouts</span>
+                    <span>Monetary and house donation systems</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                    <span>Interactive form validation and feedback</span>
+                    <span>Payment history and status tracking</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                    <span>Loading states and progress indicators</span>
+                    <span>Certificate and receipt templates</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold text-primary">Content & UX</h4>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span>Homepage and media gallery</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0" />
-                    <span>Accessibility-focused design patterns</span>
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span>Privacy, FAQ, policy pages</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span>Multi-language support</span>
                   </li>
                 </ul>
               </div>
@@ -641,9 +770,9 @@ export default function WayanadTownshipPortalCaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Frontend Skills Demonstrated</h2>
+            <h2 className="text-3xl font-bold mb-4">Technical Skills Demonstrated</h2>
             <p className="text-muted-foreground">
-              Technical capabilities in modern frontend development and design
+              Comprehensive frontend development capabilities and modern web technologies
             </p>
           </motion.div>
 
@@ -657,27 +786,27 @@ export default function WayanadTownshipPortalCaseStudy() {
             {[
               {
                 category: "Framework & Language",
-                skills: ["Next.js 14", "TypeScript", "React", "App Router", "i18n"]
+                skills: ["Next.js 14", "TypeScript", "React", "App Router", "React ECharts"]
               },
               {
                 category: "Styling & Design", 
-                skills: ["Tailwind CSS", "Responsive Design", "UI/UX Principles", "Component Design"]
+                skills: ["Tailwind CSS", "Responsive Design", "UI/UX Design", "Component Design"]
               },
               {
-                category: "Performance & UX",
-                skills: ["Image Optimization", "Lazy Loading", "Loading States", "Mobile First"]
+                category: "State & Performance",
+                skills: ["State Management", "Image Optimization", "Lazy Loading", "Performance"]
               },
               {
-                category: "Development Tools",
-                skills: ["Git & GitHub", "VS Code", "Chrome DevTools", "Figma"]
+                category: "Data & Visualization",
+                skills: ["Data Tables", "Chart Integration", "Export Functions", "PDF Generation"]
               },
               {
-                category: "Component Architecture",
-                skills: ["Reusable Components", "Props & Types", "State Management", "Event Handling"]
+                category: "Payment & Forms",
+                skills: ["Payment Integration", "Form Validation", "Conditional Logic", "File Upload"]
               },
               {
-                category: "Form Management",
-                skills: ["Form Validation", "Conditional Fields", "User Feedback", "Error Handling"]
+                category: "Internationalization",
+                skills: ["i18n Implementation", "Multi-language", "Locale Formatting", "Language Toggle"]
               }
             ].map((skillGroup, index) => (
               <motion.div
@@ -715,9 +844,10 @@ export default function WayanadTownshipPortalCaseStudy() {
           >
             <h2 className="text-3xl font-bold gradient-text">Project Outcome</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Successfully delivered a responsive, user-friendly frontend that provided an intuitive 
-              experience for donors, administrators, and beneficiaries, contributing to the platform's 
-              effectiveness in coordinating relief efforts.
+              Successfully delivered a comprehensive, production-ready platform that streamlined 
+              relief coordination for the Meppadi landslide. The frontend provided efficient, 
+              role-specific experiences for administrators, contractors, sponsors, and beneficiaries, 
+              significantly contributing to the platform's mission of connecting help with those in need.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">

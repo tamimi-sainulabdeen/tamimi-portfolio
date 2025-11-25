@@ -99,7 +99,7 @@ function ProjectCard({ project, index }: { project: typeof projectRegistry[strin
           </motion.a>
           <Link href={project.secondaryButton.url}>
             <motion.div
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-border text-foreground hover:border-primary hover:text-primary transition-colors text-sm font-medium flex-1"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-ring/50 text-foreground hover:border-primary hover:text-primary transition-colors text-sm font-medium flex-1"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

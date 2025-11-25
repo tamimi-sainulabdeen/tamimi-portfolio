@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${dmSerif.variable} ${dancingScript.variable}`} suppressHydrationWarning>
-      <body className="antialiased m-2">
+      <body className="antialiased mx-auto">
         <ThemeProvider 
           attribute="class" 
           defaultTheme="system" 
@@ -53,7 +53,7 @@ export default function RootLayout({
             {children}
           </main>
           <Toaster 
-            position="top-right"
+            position="bottom-right"
             expand={false}
             richColors
             closeButton

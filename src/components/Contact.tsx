@@ -16,16 +16,70 @@ export function Contact() {
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const maxMessageLength = 500;
+  const messageLength = formData.message.length;
+  const isMessageTooLong = messageLength > maxMessageLength;
+
+  const validateForm = () => {
+    const newErrors = {
+      name: "",
+      email: "",
+      message: "",
+    };
+
+    let isValid = true;
+
+    // Name validation
+    if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters long";
+      isValid = false;
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+      isValid = false;
+    }
+
+    // Message validation
+    if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters long";
+      isValid = false;
+    }
+
+    // Message max length validation
+    if (isMessageTooLong) {
+      newErrors.message = `Message must be less than ${maxMessageLength} characters`;
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      toast.error("Please fix the errors in the form before submitting.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Show loading toast
     const toastId = toast.loading("Sending your message...");
 
     try {
-      const response = await fetch("https://formspree.io/f/movrqlwk", {
+      const response = await fetch("https://formspree.io/f/mwpjyenk", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,6 +98,7 @@ export function Contact() {
           duration: 5000,
         });
         setFormData({ name: "", email: "", message: "" });
+        setErrors({ name: "", email: "", message: "" }); // Clear errors on success
       } else {
         throw new Error("Failed to send message");
       }
@@ -60,10 +115,58 @@ export function Contact() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { name, value } = e.target;
+    
+    // For message field, enforce max length
+    if (name === "message" && value.length > maxMessageLength) {
+      return; // Don't update if exceeding max length
+    }
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: "",
+      });
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    setFocusedField(null);
+    
+    // Validate individual field on blur
+    if (formData[field as keyof typeof formData].trim()) {
+      const newErrors = { ...errors };
+      
+      switch (field) {
+        case "name":
+          if (formData.name.trim().length < 2) {
+            newErrors.name = "Name must be at least 2 characters long";
+          }
+          break;
+        case "email":
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(formData.email)) {
+            newErrors.email = "Please enter a valid email address";
+          }
+          break;
+        case "message":
+          if (formData.message.trim().length < 10) {
+            newErrors.message = "Message must be at least 10 characters long";
+          }
+          if (formData.message.length > maxMessageLength) {
+            newErrors.message = `Message must be less than ${maxMessageLength} characters`;
+          }
+          break;
+      }
+      
+      setErrors(newErrors);
+    }
   };
 
   const contactInfo = [
@@ -131,14 +234,14 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-6 items-start">
           {/* Left Column - Contact Form */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="bg-card hover:bg-muted rounded-2xl p-8 border border-border shadow-sm hover:shadow-lg"
+            className="bg-card hover:bg-muted rounded-2xl p-8 mr-4 border border-border shadow-sm hover:shadow-lg"
           >
-            <h3 className="text-primary text-3xl font-bold mb-6">Drop Me a Message</h3>
+            <h3 className="text-primary text-3xl font-bold mb-6 ">Drop Me a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Input */}
@@ -159,11 +262,22 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   onFocus={() => setFocusedField("name")}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full h-14 rounded-xl border-ring/40 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 transition-colors"
+                  onBlur={() => handleBlur("name")}
+                  className={`w-full h-14 rounded-xl border-ring/40 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 transition-colors ${
+                    errors.name ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" : ""
+                  }`}
                   required
                   disabled={isSubmitting}
                 />
+                {errors.name && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-xs mt-1 ml-1"
+                  >
+                    {errors.name}
+                  </motion.p>
+                )}
               </div>
 
               {/* Email Input */}
@@ -185,11 +299,22 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   onFocus={() => setFocusedField("email")}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full h-14 rounded-xl border-ring/40 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 transition-colors"
+                  onBlur={() => handleBlur("email")}
+                  className={`w-full h-14 rounded-xl border-ring/40 focus:border-primary focus:ring-2 focus:ring-primary/20 px-4 transition-colors ${
+                    errors.email ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" : ""
+                  }`}
                   required
                   disabled={isSubmitting}
                 />
+                {errors.email && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-xs mt-1 ml-1"
+                  >
+                    {errors.email}
+                  </motion.p>
+                )}
               </div>
 
               {/* Message Textarea */}
@@ -210,27 +335,48 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   onFocus={() => setFocusedField("message")}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full min-h-[150px] rounded-xl border-ring/40 focus:border-primary focus:ring-2 focus:ring-primary/20 p-4 resize-none transition-colors"
+                  onBlur={() => handleBlur("message")}
+                  className={`w-full min-h-[150px] rounded-xl border-ring/40 focus:border-primary focus:ring-2 focus:ring-primary/20 p-4 resize-none transition-colors ${
+                    errors.message || isMessageTooLong ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" : ""
+                  }`}
                   required
                   disabled={isSubmitting}
                 />
+                <div className="flex justify-between items-center mt-2">
+                  {errors.message ? (
+                    <motion.p 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-xs ml-1"
+                    >
+                      {errors.message}
+                    </motion.p>
+                  ) : (
+                    <div /> 
+                  )}
+                  <div className={`text-xs ${
+                    isMessageTooLong ? 'text-red-500 font-semibold' : 
+                    messageLength > maxMessageLength * 0.8 ? 'text-red-500' : 'text-gray-500'
+                  }`}>
+                    {messageLength}/{maxMessageLength}
+                  </div>
+                </div>
               </div>
 
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || isMessageTooLong}
                 className="w-full h-14 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground flex items-center justify-center gap-2 shadow-lg font-semibold hover:shadow-xl transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
                 whileHover={
-                  !isSubmitting
+                  !isSubmitting && !isMessageTooLong
                     ? {
                         scale: 1.02,
                         boxShadow: "0 20px 40px rgba(45, 212, 191, 0.3)",
                       }
                     : {}
                 }
-                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+                whileTap={!isSubmitting && !isMessageTooLong ? { scale: 0.98 } : {}}
               >
                 {isSubmitting ? (
                   <>
@@ -335,9 +481,9 @@ export function Contact() {
                 ))}
               </div>
             </div>
-          </motion.div>
+           </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 }

@@ -30,7 +30,7 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <p className="text-left max-w-xl mx-auto text-muted-foreground leading-relaxed">
+            <p className="text-left max-w-2xl mx-auto text-muted-foreground leading-relaxed">
                 I'm a front-end developer with 1 year of experience, passionate about 
                 crafting intuitive interfaces that connect seamlessly with backend services. 
                 I enjoy solving problems through thoughtful design, clean code, and 

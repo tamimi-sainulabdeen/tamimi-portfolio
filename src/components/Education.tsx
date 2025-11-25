@@ -34,7 +34,7 @@ export function Education() {
 
           {/* ADD BACK: Card hover lift */}
           <motion.div
-            className="relative bg-primary/10 hover:bg-primary/15 border border-border shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl p-8"
+            className="relative bg-primary/10 hover:bg-primary/15 border border-border shadow-sm hover:shadow-lg transition-all duration-300 rounded-2xl p-8"
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -128,7 +128,7 @@ export function Education() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  A comprehensive 4-year professional engineering program focused on core computer science principles,
+                  A 4-year professional engineering program focused on core computer science principles,
                   software development, algorithms, system design, and modern web technologies. 
                   Gained strong practical experience through academic projects, labs, and hands-on coursework.
                 </motion.p>
@@ -147,8 +147,8 @@ export function Education() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      "Data Structures & Algorithms",
                       "Web Programming",
+                      "Data Structures & Algorithms",                
                       "Database Management Systems",
                       "Operating systems",                   
                       "Computer Networks",
@@ -189,11 +189,11 @@ export function Education() {
                     Key Achievements
                   </h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    {[
-                      "Completed academic projects.",
+                    {[                   
                       "Consistently maintained strong academic performance throughout the program.",
                       "Actively participated in workshops, technical training sessions, and extracurricular activities.",
                       "Contributed to team projects, improving collaboration and problem-solving skills.",
+                      "Completed academic projects.",
                       "Received positive feedback from mentors for dedication, discipline, and continuous learning."
                     ].map((achievement, index) => (
                       // ADD BACK: List item hover effects
