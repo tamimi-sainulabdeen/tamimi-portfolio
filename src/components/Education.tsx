@@ -158,7 +158,7 @@ export function Education() {
                       // ADD BACK: Tag hover effect
                       <motion.span
                         key={index}
-                        className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm border border-primary/20"
+                        className="px-3 py-1 rounded-md bg-primary/10 text-primary text-sm border border-primary/20"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -197,25 +197,23 @@ export function Education() {
                       "Received positive feedback from mentors for dedication, discipline, and continuous learning."
                     ].map((achievement, index) => (
                       // ADD BACK: List item hover effects
-                      <motion.li 
-                        key={index}
-                        className="flex items-center gap-3"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ 
-                          duration: 0.3, 
-                          delay: 0.7 + index * 0.1 
-                        }}
-                        whileHover={{ x: 5 }}
-                      >
-                        {/* ADD BACK: Bullet hover scale */}
-                        <motion.div 
-                          className="w-1.5 h-1.5 bg-primary rounded-full"
-                          whileHover={{ scale: 1.5 }}
-                        ></motion.div>
-                        <span>{achievement}</span>
-                      </motion.li>
+                     <motion.li 
+                      key={index}
+                      className="flex items-start gap-3 flex-nowrap"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <motion.div 
+                        className="w-1.5 h-1.5 flex-none mt-1 bg-primary rounded-full"
+                        whileHover={{ scale: 1.5 }}
+                      ></motion.div>
+
+                      <span>{achievement}</span>
+                    </motion.li>
+
                     ))}
                   </ul>
                 </motion.div>
