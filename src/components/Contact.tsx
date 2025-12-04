@@ -483,7 +483,7 @@ export function Contact() {
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <div className="w-12 h-12 mr-2 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
                     <info.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <div>

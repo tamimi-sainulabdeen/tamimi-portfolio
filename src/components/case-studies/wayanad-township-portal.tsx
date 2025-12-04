@@ -241,7 +241,7 @@ export default function WayanadTownshipPortalCaseStudy() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/wayanad_banner.webp"
+            src="/images/wayanad_project/wayanad_banner.webp"
             alt="Wayanad Township Portal Banner"
             fill
             className="object-cover"
