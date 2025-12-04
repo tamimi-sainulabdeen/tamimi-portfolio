@@ -100,7 +100,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
               </motion.button>
 
              <motion.a
-                href="/documents/Tamimi_sainulabdeen_CV.pdf"
+                href="/documents/Tamimi_Sainulabdeen_CV.pdf"
                 download="Tamimi_Sainulabdeen_CV.pdf"
                 className="px-6 py-3 rounded-xl border border-ring text-muted-foreground hover:border-primary hover:text-foreground transition-colors flex items-center gap-2 font-semibold"
                 whileHover={{ scale: 1.05 }}
