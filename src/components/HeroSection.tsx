@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
   return (
-    <section id="home" className="px-6 pt-20 pb-20 bg-background">
+    <section id="home" className="px-6 pt-20 pb-20 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto w-full py-8">
         <div className="grid md:grid-cols-2 gap-5  items-center">
 

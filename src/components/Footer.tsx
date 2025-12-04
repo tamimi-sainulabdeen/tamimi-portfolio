@@ -23,11 +23,11 @@ export function Footer() {
       href: personalInfo.linkedin,
       icon: SiLinkedin,
     },
-    {
-      name: "Behance",
-      href: `mailto:${personalInfo.behance}`,
-      icon: SiBehance,
-    },
+    // {
+    //   name: "Behance",
+    //   href: `mailto:${personalInfo.behance}`,
+    //   icon: SiBehance,
+    // },
   ];
 
   return (

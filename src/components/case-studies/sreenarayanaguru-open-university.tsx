@@ -2,7 +2,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ExternalLink, Calendar, Users, Layout, Smartphone, CheckCircle, Code, Palette, Component, Zap, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ExternalLink, Calendar, Users, Layout, Smartphone, CheckCircle, Code, Palette, Component, Zap, X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -39,7 +39,7 @@ export default function SGOUCaseStudy() {
       ]
     },
     {
-      title: "Intuitive Dashboard Redesign",
+      title: "Intuitive Dashboard",
       description: "Redesigned the dashboard layout to improve clarity, usability, and visual hierarchy with quick access to academic resources.",
       image: "/images/sgou_2.webp",
       points: [
@@ -61,7 +61,7 @@ export default function SGOUCaseStudy() {
       ]
     },
     {
-      title: "Academic Calendar UI",
+      title: "Academic Calendar Modal",
       description: "Designed a simplified and easy-to-scan calendar section displaying important university updates, deadlines, and alerts.",
       image: "/images/sgou_4.webp",
       points: [
@@ -77,7 +77,7 @@ export default function SGOUCaseStudy() {
 
   const techStack = [
     { name: "Bootstrap 5", purpose: "Responsive Layout & Components" },
-    { name: "Material Design", purpose: "UI/UX System & Patterns" },
+    { name: "Material Design for Bootstrap (MDB)", purpose: "UI Components & Design System" },
     { name: "JavaScript", purpose: "Interactivity & Frontend Logic" },
     { name: "CSS3", purpose: "Custom Styling & Animations" },
     { name: "HTML5", purpose: "Semantic Structure" }
@@ -130,8 +130,8 @@ export default function SGOUCaseStudy() {
   }, [selectedImage, currentImageIndex]);
 
   return (
-    <div className="min-h-screen bg-background pt-5">
-      {/* Enhanced Image Modal */}
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      {/* Image Modal */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -224,7 +224,7 @@ export default function SGOUCaseStudy() {
         )}
       </AnimatePresence>
 
-          {/* Back Button */}
+         {/* Back Button */}
      <div className="fixed top-20 md:top-24 left-6 z-40">
         <Link href="/#projects">
           <motion.div
@@ -242,33 +242,29 @@ export default function SGOUCaseStudy() {
         </Link>
       </div>
 
-      {/* Enhanced Hero Section */}
-      <section className="relative py-14 sm:py-18 md:py-20 px-4 sm:px-6 overflow-hidden">
-
-        
-        <div className="max-w-7xl mx-auto relative z-10">
+      {/* Hero Section */}
+      <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-        
-
-            <h1 className="font-bold text-4xl sm:text-5xl md:text-6xl gradient-text mb-4 sm:mb-6 leading-tight mt-10">
+            className="text-center w-full"
+          >       
+            <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl gradient-text mb-4 sm:mb-6 leading-tight px-2">
               Sreenarayanaguru Open University (SGOU)
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
-              Redesigned the Sreenarayanaguru Open University dashboard to deliver a modern, intuitive, 
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
+              Redesigned the Sreenarayanaguru Open University student dashboard to deliver a modern, intuitive, 
               and responsive experience that enhances academic management for distance learners.
             </p>
        
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
               <motion.a
                 href="https://erp.sgou.ac.in/login-candidate"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all w-full sm:w-auto justify-center max-w-xs"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 10px 30px rgba(45, 212, 191, 0.4)"
@@ -276,7 +272,7 @@ export default function SGOUCaseStudy() {
                 whileTap={{ scale: 0.95 }}
               >
                 <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
-                View Live Project
+                View Live Website
               </motion.a>
             </div>
           </motion.div>
@@ -284,28 +280,28 @@ export default function SGOUCaseStudy() {
       </section>
 
       {/* Problem & Solution */}
-  <section className="py-12 sm:py-14 md:py-20 px-4 sm:px-6 ">
-  <div className="max-w-7xl mx-auto">
-    {/* Add this heading section */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-8 sm:mb-12 md:mb-16"
-    >
-      <h2 className="text-3xl sm:text-4xl gradient-text font-bold mb-3 sm:mb-4">Problem & Solution</h2>
-      <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
-        Addressing key challenges in the original dashboard and delivering an improved user experience
-      </p>
-    </motion.div>
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-12 md:mb-16 w-full"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text font-bold mb-3 sm:mb-4">Problem & Solution</h2>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-4">
+              Addressing key challenges in the original dashboard and delivering an improved user experience
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 w-full">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-red-500/10 border border-red-500/20"
+              className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-red-500/10 border border-red-500/20 w-full"
             >
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="p-1 sm:p-2 rounded-lg bg-red-500/10">
@@ -336,7 +332,7 @@ export default function SGOUCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-green-500/10 border border-green-500/20"
+              className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-green-500/10 border border-green-500/20 w-full"
             >
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="p-1 sm:p-2 rounded-lg bg-green-500/10">
@@ -366,22 +362,22 @@ export default function SGOUCaseStudy() {
       </section>
 
       {/* Key Features */}
-      <section className="py-10 sm:py-14 md:py-18 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12 md:mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16 w-full"
           >
-            <h2 className="text-3xl sm:text-4xl gradient-text font-bold mb-3 sm:mb-4">Key Features</h2>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl md:text-4xl gradient-text font-bold mb-3 sm:mb-4">Key Features</h2>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-4">
               Focused on creating intuitive interfaces that address student needs and improve the academic management experience
             </p>
           </motion.div>
 
-          <div className="space-y-12 sm:space-y-16 md:space-y-20">
+          <div className="space-y-12 sm:space-y-16 md:space-y-20 w-full">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -389,7 +385,7 @@ export default function SGOUCaseStudy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className={`grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center ${
+                className={`grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center w-full ${
                   index % 2 === 1 ? 'lg:grid-flow-row-dense' : ''
                 }`}
               >
@@ -414,22 +410,24 @@ export default function SGOUCaseStudy() {
                 </div>
                 <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                   <motion.div
-                    className="rounded-lg sm:rounded-xl overflow-hidden border border-ring/50 shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 bg-card"
+                    className="rounded-lg sm:rounded-xl border-8 border-ring/50 shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 bg-card w-full overflow-hidden"
                     whileHover={{ scale: isMobile ? 1 : 1.02, y: isMobile ? 0 : -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                     onClick={() => openModal(feature.image)}
                   >
-                    <Image
-                      src={feature.image}
-                      alt={feature.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-auto"
-                    />
+                    <div className="w-full h-auto aspect-video relative">
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        fill
+                        className="object-cover w-full h-full"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
                   </motion.div>
                   <p className="text-xs sm:text-sm text-muted-foreground text-center mt-2 sm:mt-3 flex items-center justify-center gap-1 sm:gap-2">
                     <Layout className="w-3 h-3 sm:w-4 sm:h-4" />
-                    Click to view full screen
+                    Click image to view full screen
                   </p>
                 </div>
               </motion.div>
@@ -439,35 +437,35 @@ export default function SGOUCaseStudy() {
       </section>
 
       {/* Technical Implementation */}
-      <section className="py-10 sm:py-14 md:py-18 px-4 sm:px-6 ">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12 md:mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16 w-full"
           >
-            <h2 className="text-3xl sm:text-4xl gradient-text font-bold mb-3 sm:mb-4">Technical Implementation</h2>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text font-bold mb-3 sm:mb-4">Technical Implementation</h2>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-4">
               Applied modern frontend technologies and design principles to deliver a scalable, maintainable solution
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 w-full">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-4 sm:space-y-6"
+              className="space-y-4 sm:space-y-6 w-full"
             >
               <h3 className="text-lg sm:text-xl font-semibold flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <Code className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 Technologies & Skills Applied
               </h3>
               
-              <div className="grid gap-3 sm:gap-4">
+              <div className="grid gap-3 sm:gap-4 w-full ">
                 {techStack.map((tech, index) => (
                   <motion.div 
                     key={tech.name}
@@ -475,7 +473,7 @@ export default function SGOUCaseStudy() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-ring/50 hover:border-primary/30 transition-colors"
+                    className="flex overflow-x-hidden items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-ring/70 hover:border-primary/30 transition-colors w-full"
                   >
                     <div className="w-2 h-2 sm:w-3 sm:h-3 bg-primary rounded-full flex-shrink-0" />
                     <div className="flex-1 min-w-0">
@@ -492,14 +490,14 @@ export default function SGOUCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-4 sm:space-y-6"
+              className="space-y-4 sm:space-y-6 w-full"
             >
               <h3 className="text-lg sm:text-xl font-semibold flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 Key Deliverables
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
                 {builtFeatures.map((feature, index) => (
                   <motion.div
                     key={feature}
@@ -507,7 +505,7 @@ export default function SGOUCaseStudy() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-background border border-ring/50 hover:border-primary/30 transition-colors"
+                    className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-background border border-ring/70 hover:border-primary/30 transition-colors w-full"
                   >
                     <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
                     <span className="text-foreground text-xs sm:text-sm">{feature}</span>
@@ -516,6 +514,52 @@ export default function SGOUCaseStudy() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* View More Projects Section */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-background overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center w-full"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text font-bold mb-4">Explore More Projects</h2>
+            <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-2xl mx-auto px-4">
+              Check out my other projects and see how I approach different frontend challenges
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4">
+              <Link href="/#projects" className="w-full sm:w-auto">
+                <motion.div
+                  className="inline-flex items-center gap-3 px-6 py-4 sm:text-sm md:text-base rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all w-full sm:w-auto justify-center"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 15px 40px rgba(45, 212, 191, 0.4)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Layout className="w-4 h-4" />
+                  View All Projects
+                  <ArrowRight className="w-4 h-4" />
+                </motion.div>
+              </Link>
+              
+              <Link href="/#contact" className="w-full sm:w-auto">
+                <motion.div
+                  className="inline-flex items-center gap-3 px-6 py-4 xs:text-sm md:text-base rounded-xl bg-background border border-ring text-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:border-primary w-full sm:w-auto justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Users className="w-4 h-4" />
+                  Get In Touch
+                </motion.div>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

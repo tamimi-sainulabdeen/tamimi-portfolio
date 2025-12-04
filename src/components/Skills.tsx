@@ -10,7 +10,7 @@ import {
   Users, MessageCircle, Clock, Target, 
   Lightbulb, Search, Zap, BookOpen, Code2,
   Heart, Brain, Calendar, Sparkles, TrendingUp,
-  Workflow, Smartphone, Boxes, PlugZap, Bug, Globe, Gauge, TestTube, Palette
+  Workflow, Smartphone, Boxes, PlugZap, Bug, Globe, Gauge, TestTube, Palette, ShieldCheck
 } from "lucide-react";
 
 const skillsData = [
@@ -81,6 +81,11 @@ const otherSkillsData = [
     description: "Integrating APIs, processing responses, and reflecting the data accurately in the UI."
   },
   {
+    title: "Security Best Practices",
+    description: "Aware of secure coding practices, protecting APIs, handling tokens safely, preventing XSS/CSRF, and following OWASP guidelines.",
+    icon: ShieldCheck, 
+  },
+  {
     icon: Bug,
     title: "Debugging",
     description: "Identifying and fixing issues using browser DevTools and systematic debugging methods."
@@ -95,12 +100,11 @@ const otherSkillsData = [
     title: "Performance Optimization",
     description: "Improving front-end performance with memoization, lazy loading, and image optimization."
   },
-  {
-    icon: TestTube,
-    title: "Basic Testing",
-    description: "Ensuring the UI, core features, and edge cases behave as expected across different scenarios."
-  },
- 
+  // {
+  //   icon: TestTube,
+  //   title: "Basic Testing",
+  //   description: "Ensuring the UI, core features, and edge cases behave as expected across different scenarios."
+  // },
 ];
 
 
@@ -119,7 +123,7 @@ const softSkillsData = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 bg-background">
+    <section id="skills" className="py-20 px-6 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${dmSerif.variable} ${dancingScript.variable}`} suppressHydrationWarning>
-      <body className="antialiased mx-auto">
+      <body className="antialiased overflow-hidden">
         <ThemeProvider 
           attribute="class" 
           defaultTheme="system" 

@@ -1,11 +1,11 @@
 export const personalInfo = {
   logo: "Tamimi",  
-  name: "Tamimi Sainulabdeen", // ← Your name here
-  title: "Front-End Developer | UI/UX Design", // e.g., "Full-Stack Developer"
-  email: "tamimisainulabdeen2001@gmail.com",
-  phone: "+971 5465768",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  name: "Tamimi Sainulabdeen", 
+  title: "Front-End Developer | UI Designer",
+  email: "tamimi.abdeen@gmail.com",
+  phone: "+971 52 103 5057",
+  github: "https://github.com/tamimi-sainulabdeen",
+  linkedin: "https://linkedin.com/in/tamimisainulabdeen",
   location: "Dubai, United Arab Emirates",
   behance: "behance.com"
 }
