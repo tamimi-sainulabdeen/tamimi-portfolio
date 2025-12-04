@@ -7,12 +7,12 @@ import { SiBehance, SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    {
+ const socialLinks = [
+    ...(personalInfo.email ? [{
       name: "Email",
-      href: `mailto:${personalInfo.email}`,
+      href: `mailto:${encodeURIComponent(personalInfo.email)}`,
       icon: SiGmail,
-    },
+    }] : []),
     {
       name: "GitHub",
       href: personalInfo.github,

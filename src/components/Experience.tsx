@@ -155,7 +155,7 @@ export function Experience() {
                       // ADD: Tag hover effect
                       <motion.span
                         key={index}
-                        className="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm border border-secondary/40"
+                        className="px-3 py-1 rounded-md bg-secondary/10 text-secondary text-sm border border-secondary/40"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -196,24 +196,21 @@ export function Experience() {
                     ].map((responsibility, index) => (
                       // ADD: List item hover effects
                       <motion.li 
-                        key={index}
-                        className="flex items-center gap-3"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ 
-                          duration: 0.3, 
-                          delay: 0.7 + index * 0.1 
-                        }}
-                        whileHover={{ x: 5 }}
-                      >
-                        {/* ADD: Bullet hover scale */}
-                        <motion.div 
-                          className="w-1.5 h-1.5 bg-secondary rounded-full"
-                          whileHover={{ scale: 1.5 }}
-                        ></motion.div>
-                        <span>{responsibility}</span>
-                      </motion.li>
+                      key={index}
+                      className="flex items-start gap-3 flex-nowrap"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <motion.div 
+                        className="w-1.5 h-1.5 flex-none mt-1 bg-secondary rounded-full"
+                        whileHover={{ scale: 1.5 }}
+                      ></motion.div>
+
+                      <span>{responsibility}</span>
+                    </motion.li>
                     ))}
                   </ul>
                 </motion.div>
