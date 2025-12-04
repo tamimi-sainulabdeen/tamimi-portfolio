@@ -271,12 +271,12 @@ export default function KarmasriPortalCaseStudy() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                  Advanced Digital Platform for <span className="font-semibold text-muted-foreground">Kerala Cadre AIS Officers</span> - 
+                  Advanced Digital Platform for <span className="font-semibold text-muted-foreground">Kerala Cadre All India Service(AIS) Officers</span> - 
                   Streamlining Resource Management & Service Processes
                 </motion.p>
                 
                 {/* Feature Cards Section */}
-                <motion.div
+                {/* <motion.div
                   className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8 sm:mb-12"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -286,15 +286,15 @@ export default function KarmasriPortalCaseStudy() {
                     <Users className="w-5 h-5 text-secondary" />
                     <span className="text-muted-foreground font-medium">All India Service Officers</span>
                   </div>
-                  {/* <div className="flex items-center gap-4 px-6 py-3 rounded-2xl bg-card backdrop-blur-sm border border-secondary/50 hover:border-secondary transition-all duration-300">
+                  <div className="flex items-center gap-4 px-6 py-3 rounded-2xl bg-card backdrop-blur-sm border border-secondary/50 hover:border-secondary transition-all duration-300">
                     <Database className="w-5 h-5 text-secondary" />
                     <span className="text-muted-foreground font-medium">Data Management</span>
                   </div>
                   <div className="flex items-center gap-4 px-6 py-3 rounded-2xl bg-card backdrop-blur-sm border border-secondary/50 hover:border-secondary transition-all duration-300">
                     <Workflow className="w-5 h-5 text-secondary" />
                     <span className="text-muted-foreground font-medium">Complex Business Logic</span>
-                  </div> */}
-                </motion.div>
+                  </div>
+                </motion.div> */}
 
                 {/* Project Badge - Separated with proper spacing */}
                 <motion.div
