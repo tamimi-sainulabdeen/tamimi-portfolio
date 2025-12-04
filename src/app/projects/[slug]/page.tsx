@@ -4,7 +4,7 @@ import { getAllProjectSlugs, getProjectListing } from '@/data/project-data';
 
 // Map slugs to their dynamic imports
 const caseStudyImports = {
-  'e-commerce-platform': () => import('@/components/case-studies/e-commerce-platform'),
+  'karmasri-portal': () => import('@/components/case-studies/karmasri-portal'),
   'sreenarayanaguru-open-university': () => import('@/components/case-studies/sreenarayanaguru-open-university'),
   'wayanad-township-portal': () => import('@/components/case-studies/wayanad-township-portal'),
 } as const;

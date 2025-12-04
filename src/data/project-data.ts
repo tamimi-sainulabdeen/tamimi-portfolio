@@ -7,6 +7,7 @@ export interface ProjectListing {
   category: "Web" | "Mobile" | "UI/UX";
   tags: string[];
   featured?: boolean;
+  confidential?: boolean; 
   year: string;
   role: string;
   // Dynamic button configuration
@@ -22,23 +23,44 @@ export interface ProjectListing {
 
 // Project registry for listing pages only
 export const projectRegistry: Record<string, ProjectListing> = {
-  'e-commerce-platform': {
-    slug: "e-commerce-platform",
-    title: "E-Commerce Platform",
-    description: "A full-featured online shopping platform with seamless checkout, inventory management, and personalized recommendations.",
-    image: "https://images.unsplash.com/photo-1627634771121-fa3db5779f60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHByb2plY3R8ZW58MXx8fHwxNzYyNzUxNTA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+
+    'karmasri-portal': {
+    slug: "karmasri-portal",
+    title: "KARMASRI Portal",
+    description: "Confidential government platform for Kerala cadre All India Services officers",
+    image: "/images/karmasri_project/karmasri_banner.webp",
     category: "Web",
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
+    tags: ["Next.js","React.js", "Tailwind CSS", "JavaScript", "TypeScript", "REST API", "Authentication"],
     featured: true,
     year: "2024",
-    role: "Front-End Developer",
+    role: "Frontend Developer",
+    confidential: true, // Add this
     primaryButton: {
       label: "Visit Website",
       url: "#"
     },
     secondaryButton: {
       label: "Know More",
-      url: "/projects/e-commerce-platform"
+      url: "/projects/karmasri-portal"
+    }
+  },
+    'wayanad-township-portal': {
+    slug: "wayanad-township-portal",
+    title: "Wayanad Township Portal",
+    description: "A comprehensive relief and rehabilitation platform for communities affected by the Meppadi landslide, featuring donation management and township planning.",
+    image: "images/wayanad_feature_1.webp",
+    category: "Web",
+    tags: ["Next.js", "JavaScript", "Tailwind CSS", "TypeScript", "Google Sign-In", "Dashboards"],
+    featured: true,
+    year: "2024",
+    role: "Frontend Developer",
+    primaryButton: {
+      label: "Visit Website",
+      url: "https://wayanadtownship.kerala.gov.in/"
+    },
+    secondaryButton: {
+      label: "Know More",
+      url: "/projects/wayanad-township-portal"
     }
   },
   'sreenarayanaguru-open-university': {
@@ -50,7 +72,7 @@ export const projectRegistry: Record<string, ProjectListing> = {
     tags: ["Bootstrap 5", "Material Design Bootstrap (MDB)", "JavaScript", "CSS3", "HTML5"],
     featured: true,
     year: "2024",
-    role: "Front-End Developer",
+    role: "UI Designer",
     primaryButton: {
       label: "Visit Website",
       url: "https://erp.sgou.ac.in/login-candidate"
@@ -60,25 +82,7 @@ export const projectRegistry: Record<string, ProjectListing> = {
       url: "/projects/sreenarayanaguru-open-university"
     }
   },
-   'wayanad-township-portal': {
-    slug: "wayanad-township-portal",
-    title: "Wayanad Township Portal",
-    description: "A comprehensive relief and rehabilitation platform for communities affected by the Meppadi landslide, featuring donation management and township planning.",
-    image: "images/wayanad_feature_1.webp",
-    category: "Web",
-    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Stripe", "Razorpay", "Admin Dashboard"],
-    featured: true,
-    year: "2024",
-    role: "Full-Stack Developer",
-    primaryButton: {
-      label: "Visit Portal",
-      url: "https://wayanadtownship.kerala.gov.in/"
-    },
-    secondaryButton: {
-      label: "Know More",
-      url: "/projects/wayanad-township-portal"
-    }
-  }
+
 
 };
 

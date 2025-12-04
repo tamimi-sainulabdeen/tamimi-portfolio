@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import Image from "next/image";
 import { Input } from "./ui/input";
@@ -21,6 +23,23 @@ export function Contact() {
     email: "",
     message: "",
   });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if user is on mobile device
+    const checkMobile = () => {
+      setIsMobile(
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      );
+    };
+    checkMobile();
+    
+    // Also check on resize
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const maxMessageLength = 500;
   const messageLength = formData.message.length;
@@ -67,15 +86,12 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate form before submission
     if (!validateForm()) {
       toast.error("Please fix the errors in the form before submitting.");
       return;
     }
 
     setIsSubmitting(true);
-
-    // Show loading toast
     const toastId = toast.loading("Sending your message...");
 
     try {
@@ -98,7 +114,7 @@ export function Contact() {
           duration: 5000,
         });
         setFormData({ name: "", email: "", message: "" });
-        setErrors({ name: "", email: "", message: "" }); // Clear errors on success
+        setErrors({ name: "", email: "", message: "" });
       } else {
         throw new Error("Failed to send message");
       }
@@ -117,9 +133,8 @@ export function Contact() {
   ) => {
     const { name, value } = e.target;
     
-    // For message field, enforce max length
     if (name === "message" && value.length > maxMessageLength) {
-      return; // Don't update if exceeding max length
+      return;
     }
     
     setFormData({
@@ -127,7 +142,6 @@ export function Contact() {
       [name]: value,
     });
 
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors({
         ...errors,
@@ -139,7 +153,6 @@ export function Contact() {
   const handleBlur = (field: string) => {
     setFocusedField(null);
     
-    // Validate individual field on blur
     if (formData[field as keyof typeof formData].trim()) {
       const newErrors = { ...errors };
       
@@ -169,24 +182,52 @@ export function Contact() {
     }
   };
 
+  const handleEmailClick = (e: React.MouseEvent) => {
+    if (!isMobile) {
+      e.preventDefault();
+      navigator.clipboard.writeText(personalInfo.email).then(() => {
+        toast.success("Email copied to clipboard!");
+      }).catch(() => {
+        // Fallback: Try to open mailto link
+        window.location.href = `mailto:${personalInfo.email}`;
+      });
+    }
+    // On mobile, let the default mailto: link work
+  };
+
+  const handlePhoneClick = (e: React.MouseEvent) => {
+    if (!isMobile) {
+      e.preventDefault();
+      navigator.clipboard.writeText(personalInfo.phone).then(() => {
+        toast.success("Phone number copied to clipboard!");
+      }).catch(() => {
+        toast.info(`Phone: ${personalInfo.phone}`);
+      });
+    }
+    // On mobile, let the default tel: link work
+  };
+
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
+      onClick: handleEmailClick,
     },
     {
       icon: Phone,
       label: "Phone",
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
+      onClick: handlePhoneClick,
     },
     {
       icon: MapPin,
       label: "Location",
       value: personalInfo.location,
-      href: "#",
+      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalInfo.location)}`,
+      // Location can open in new tab
     },
   ];
 
@@ -194,28 +235,28 @@ export function Contact() {
     { 
       icon: SiGmail, 
       href: `mailto:${personalInfo.email}`, 
-      label: "Email" 
+      label: "Email",
+      onClick: handleEmailClick,
     },
     { 
       icon: SiGithub, 
       href: personalInfo.github || "https://github.com", 
-      label: "GitHub" 
+      label: "GitHub",
     },
     { 
       icon: SiLinkedin, 
       href: personalInfo.linkedin || "https://linkedin.com", 
-      label: "LinkedIn" 
+      label: "LinkedIn",
     },
-    { 
-      icon: SiBehance, 
-      href: personalInfo.behance || "https://behance.com", 
-      label: "Behance"
-    }
   ];
 
+  const isExternalLink = (href: string) => {
+    return href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('tel');
+  };
+
   return (
-    <section id="contact" className="py-20 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="px-6 py-20 bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +273,7 @@ export function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 items-start">
+        <div className="grid md:grid-cols-2 gap-5 items-start">
           {/* Left Column - Contact Form */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -241,7 +282,7 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="bg-card hover:bg-muted rounded-2xl p-8 mr-4 border border-border shadow-sm hover:shadow-lg"
           >
-            <h3 className="text-primary text-3xl font-bold mb-6 ">Drop Me a Message</h3>
+            <h3 className="text-primary text-3xl font-bold mb-6">Drop Me a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Input */}
@@ -403,19 +444,19 @@ export function Contact() {
           >
             {/* Professional Portrait */}
             <motion.div
-              className="relative w-[80%] mx-auto border border-4 border-ring rounded-2xl overflow-hidden"
+               className="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto border border-2 border-ring rounded-2xl overflow-hidden"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Image
                 src="/images/tamimi_3.webp"
                 alt="Tamimi Sainulabdeen"
-                width={600}
+                width={400}
                 height={400}
                 className="w-full aspect-[4/4] object-cover"
                 priority
                 placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6/DMclB18bGYbq2tMUg=="
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRT8AlrJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6/DMclB18bGYbq2tMUg=="
               />
               <div className="absolute inset-0" />
             </motion.div>
@@ -426,7 +467,16 @@ export function Contact() {
                 <motion.a
                   key={info.label}
                   href={info.href}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary transition-all group shadow-sm"
+                  onClick={info.onClick || (isExternalLink(info.href) ? undefined : (e) => {
+                    // For non-external links (mailto, tel) on desktop, let default behavior
+                    if (!isMobile) {
+                      // Allow default for mailto/tel links
+                      return;
+                    }
+                  })}
+                  target={isExternalLink(info.href) ? "_blank" : undefined}
+                  rel={isExternalLink(info.href) ? "noopener noreferrer" : undefined}
+                  className="flex items-center xl:gap-4 p-4 mx-auto rounded-xl bg-card border border-border hover:border-primary transition-all group shadow-sm cursor-pointer"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -450,35 +500,38 @@ export function Contact() {
             <div className="border-t border-border pt-6">
               <h4 className="text-foreground text-xl font-semibold mb-4">Follow me</h4>
               <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-card hover:bg-muted border border-border hover:border-primary/50 flex items-center justify-center group transition-all shadow-sm hover:shadow-md"
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label={social.label}
-                  >
-                    {social.label === "Email" && (
-                      <SiGmail className="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform" />
-                    )}
-                    {social.label === "GitHub" && (
-                      <SiGithub className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" />
-                    )}
-                    {social.label === "LinkedIn" && (
-                      <SiLinkedin className="w-6 h-6 text-blue-600 group-hover:scale-110 transition-transform" />
-                    )}
-                    {social.label === "Behance" && (
-                      <SiBehance className="w-6 h-6 text-blue-800 group-hover:scale-110 transition-transform" />
-                    )}
-                  </motion.a>
-                ))}
+               {socialLinks.map((social, index) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  onClick={social.onClick || (isExternalLink(social.href) ? undefined : (e) => {
+                    if (!isMobile) {
+                      // Allow default for mailto links
+                      return;
+                    }
+                  })}
+                  target={isExternalLink(social.href) ? "_blank" : undefined}
+                  rel={isExternalLink(social.href) ? "noopener noreferrer" : undefined}
+                  className="w-12 h-12 rounded-xl bg-card hover:bg-muted border border-border hover:border-primary/50 flex items-center justify-center group transition-all shadow-sm hover:shadow-md cursor-pointer"
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label={social.label}
+                >
+                  {social.label === "Email" && (
+                    <SiGmail className="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform" />
+                  )}
+                  {social.label === "GitHub" && (
+                    <SiGithub className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" />
+                  )}
+                  {social.label === "LinkedIn" && (
+                    <SiLinkedin className="w-6 h-6 text-blue-600 group-hover:scale-110 transition-transform" />
+                  )}
+                </motion.a>
+              ))}
               </div>
             </div>
            </motion.div>

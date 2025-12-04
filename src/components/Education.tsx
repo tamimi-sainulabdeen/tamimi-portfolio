@@ -5,7 +5,7 @@ import { Calendar, MapPin, Award, GraduationCap, BookOpen } from "lucide-react";
 
 export function Education() {
   return (
-    <section id="education" className="py-20 px-6 bg-background">
+    <section id="education" className="py-20 px-6 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

@@ -5,7 +5,7 @@ import { Calendar, MapPin, Briefcase, Code, Users } from "lucide-react";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 px-6 bg-background">
+    <section id="experience" className="py-20 px-6 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
