@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function About() {
   return (
-    <section id="about" className="px-6 py-20 bg-background">
+    <section id="about" className="px-6 py-20 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
