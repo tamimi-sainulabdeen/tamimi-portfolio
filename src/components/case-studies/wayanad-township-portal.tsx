@@ -13,7 +13,7 @@ export default function WayanadTownshipPortalCaseStudy() {
 
   const screenshots = [
     {
-      src: "/images/wayanad_project/wayanad_home_1.webp",
+      src: "/images/wayanad_project/wayanad_home.webp",
       alt: "Wayanad Township Portal",
       title: "Wayanad Township Portal",
       category: "all",
@@ -266,7 +266,7 @@ export default function WayanadTownshipPortalCaseStudy() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              Wayanad Township Portal
+              Wayanad Township Portal 
             </motion.h1>
             <motion.p 
               className="text-lg sm:text-xl text-white/90 max-w-4xl mx-auto mb-6 sm:mb-8 leading-relaxed drop-shadow-lg px-2 sm:px-4"
