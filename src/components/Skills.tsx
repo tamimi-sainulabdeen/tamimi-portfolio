@@ -67,7 +67,7 @@ const otherSkillsData = [
   },
   {
     icon: Smartphone,
-    title: "Responsive Design",
+    title: "Responsive Mobile First Design",
     description: "Creating layouts that adapt beautifully to all screen sizes."
   },
   {
