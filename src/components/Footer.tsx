@@ -2,7 +2,7 @@
 
 import { personalInfo } from "@/data/portfolio-data";
 import { motion } from "framer-motion";
-import { SiBehance, SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
