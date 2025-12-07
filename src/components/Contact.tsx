@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { personalInfo } from "@/data/portfolio-data";
-import { SiBehance, SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
+import { SiBehance, SiGithub, SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { toast } from "sonner";
 
 export function Contact() {
@@ -182,29 +182,15 @@ export function Contact() {
     }
   };
 
-  const handleEmailClick = (e: React.MouseEvent) => {
+  const handlePhoneClick = (e: React.MouseEvent, phoneNumber: string, country: string) => {
     if (!isMobile) {
       e.preventDefault();
-      navigator.clipboard.writeText(personalInfo.email).then(() => {
-        toast.success("Email copied to clipboard!");
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        toast.success(`${country} phone number copied to clipboard!`);
       }).catch(() => {
-        // Fallback: Try to open mailto link
-        window.location.href = `mailto:${personalInfo.email}`;
+        toast.info(`${country} Phone: ${phoneNumber}`);
       });
     }
-    // On mobile, let the default mailto: link work
-  };
-
-  const handlePhoneClick = (e: React.MouseEvent) => {
-    if (!isMobile) {
-      e.preventDefault();
-      navigator.clipboard.writeText(personalInfo.phone).then(() => {
-        toast.success("Phone number copied to clipboard!");
-      }).catch(() => {
-        toast.info(`Phone: ${personalInfo.phone}`);
-      });
-    }
-    // On mobile, let the default tel: link work
   };
 
   const contactInfo = [
@@ -213,21 +199,36 @@ export function Contact() {
       label: "Email",
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
-      onClick: handleEmailClick,
+      onClick: (e: React.MouseEvent) => {
+        if (!isMobile) {
+          e.preventDefault();
+          navigator.clipboard.writeText(personalInfo.email).then(() => {
+            toast.success("Email copied to clipboard!");
+          }).catch(() => {
+            window.location.href = `mailto:${personalInfo.email}`;
+          });
+        }
+      },
     },
     {
       icon: Phone,
-      label: "Phone",
-      value: personalInfo.phone,
-      href: `tel:${personalInfo.phone}`,
-      onClick: handlePhoneClick,
+      label: "UAE Phone",
+      value: personalInfo.uaePhone || "+971 XX XXX XXXX", // Add to your portfolio-data
+      href: `tel:${personalInfo.uaePhone || "+971XXXXXXXXXX"}`,
+      onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.uaePhone || "+971 XX XXX XXXX", "UAE"),
+    },
+    {
+      icon: Phone,
+      label: "Indian Phone",
+      value: personalInfo.indiaPhone || "+91 XX XXX XXXX", // Add to your portfolio-data
+      href: `tel:${personalInfo.indiaPhone || "+91XXXXXXXXXX"}`,
+      onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.indiaPhone || "+91 XX XXX XXXX", "Indian"),
     },
     {
       icon: MapPin,
       label: "Location",
       value: personalInfo.location,
       href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalInfo.location)}`,
-      // Location can open in new tab
     },
   ];
 
@@ -236,7 +237,19 @@ export function Contact() {
       icon: SiGmail, 
       href: `mailto:${personalInfo.email}`, 
       label: "Email",
-      onClick: handleEmailClick,
+      onClick: (e: React.MouseEvent) => {
+        if (!isMobile) {
+          e.preventDefault();
+          navigator.clipboard.writeText(personalInfo.email).then(() => {
+            toast.success("Email copied to clipboard!");
+          });
+        }
+      },
+    },
+    { 
+      icon: SiWhatsapp, 
+      href: `https://wa.me/${personalInfo.indiaPhone?.replace(/\D/g, '') || "91XXXXXXXXXX"}`, 
+      label: "WhatsApp",
     },
     { 
       icon: SiGithub, 
@@ -467,13 +480,7 @@ export function Contact() {
                 <motion.a
                   key={info.label}
                   href={info.href}
-                  onClick={info.onClick || (isExternalLink(info.href) ? undefined : (e) => {
-                    // For non-external links (mailto, tel) on desktop, let default behavior
-                    if (!isMobile) {
-                      // Allow default for mailto/tel links
-                      return;
-                    }
-                  })}
+                  onClick={info.onClick}
                   target={isExternalLink(info.href) ? "_blank" : undefined}
                   rel={isExternalLink(info.href) ? "noopener noreferrer" : undefined}
                   className="flex items-center xl:gap-4 p-4 mx-auto rounded-xl bg-card border border-border hover:border-primary transition-all group shadow-sm cursor-pointer"
@@ -498,18 +505,13 @@ export function Contact() {
 
             {/* Social Links */}
             <div className="border-t border-border pt-6">
-              <h4 className="text-foreground text-xl font-semibold mb-4">Follow me</h4>
+              <h4 className="text-foreground text-xl font-semibold mb-4">Connect with me</h4>
               <div className="flex gap-3">
                {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  onClick={social.onClick || (isExternalLink(social.href) ? undefined : (e) => {
-                    if (!isMobile) {
-                      // Allow default for mailto links
-                      return;
-                    }
-                  })}
+                  onClick={social.onClick}
                   target={isExternalLink(social.href) ? "_blank" : undefined}
                   rel={isExternalLink(social.href) ? "noopener noreferrer" : undefined}
                   className="w-12 h-12 rounded-xl bg-card hover:bg-muted border border-border hover:border-primary/50 flex items-center justify-center group transition-all shadow-sm hover:shadow-md cursor-pointer"
@@ -523,6 +525,9 @@ export function Contact() {
                 >
                   {social.label === "Email" && (
                     <SiGmail className="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform" />
+                  )}
+                  {social.label === "WhatsApp" && (
+                    <SiWhatsapp className="w-6 h-6 text-green-500 group-hover:scale-110 transition-transform" />
                   )}
                   {social.label === "GitHub" && (
                     <SiGithub className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:scale-110 transition-transform" />
