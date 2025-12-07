@@ -6,9 +6,8 @@ export const personalInfo = {
   uaePhone: "+971 521035057",
   indiaPhone: "+91 7736792342",
   github: "https://github.com/tamimi-sainulabdeen",
-  linkedin: "https://linkedin.com/in/tamimi-s",
+  linkedin: "https://linkedin.com/in/tamimisainulabdeen",
   location: "Dubai, United Arab Emirates",
   behance: "behance.com"
 }
 
-// ... rest of your data
