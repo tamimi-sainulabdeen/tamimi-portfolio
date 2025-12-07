@@ -2,16 +2,21 @@
 
 import { personalInfo } from "@/data/portfolio-data";
 import { motion } from "framer-motion";
-import { SiGithub, SiGmail, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
- const socialLinks = [
+  const socialLinks = [
     ...(personalInfo.email ? [{
       name: "Email",
       href: `mailto:${encodeURIComponent(personalInfo.email)}`,
       icon: SiGmail,
+    }] : []),
+    ...(personalInfo.indiaPhone ? [{
+      name: "WhatsApp",
+      href: `https://wa.me/${personalInfo.indiaPhone.replace(/\D/g, '')}`,
+      icon: SiWhatsapp,
     }] : []),
     {
       name: "GitHub",
@@ -59,7 +64,9 @@ export function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors"
+                className={`p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors ${
+                  link.name === "WhatsApp" ? "hover:text-green-500" : ""
+                }`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 10 }}
@@ -68,7 +75,10 @@ export function Footer() {
                 viewport={{ once: true }}
                 aria-label={link.name}
               >
-                <link.icon size={20} />
+                <link.icon 
+                  size={20} 
+                  className={link.name === "WhatsApp" ? "text-foreground" : ""}
+                />
               </motion.a>
             ))}
           </div>
