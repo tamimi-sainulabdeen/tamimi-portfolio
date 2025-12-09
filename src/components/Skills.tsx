@@ -16,7 +16,7 @@ import {
 const skillsData = [
   {
     category: "Frontend",
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    gradient: "from-blue-500/50 to-cyan-500/50",
     hoverGradient: "from-blue-500/30 to-cyan-500/30",
     border: "border-blue-200/50",
     skills: [
@@ -28,7 +28,7 @@ const skillsData = [
   },
   {
     category: "Design",
-    gradient: "from-purple-500/20 to-pink-500/20",
+    gradient: "from-purple-500/50 to-pink-500/50",
     hoverGradient: "from-purple-500/30 to-pink-500/30",
     border: "border-purple-200/50",
     skills: [
@@ -40,7 +40,7 @@ const skillsData = [
   },
   {
     category: "Tools",
-    gradient: "from-green-500/20 to-emerald-500/20",
+    gradient: "from-green-500/50 to-emerald-500/50",
     hoverGradient: "from-green-500/30 to-emerald-500/30",
     border: "border-green-200/50",
     skills: [
