@@ -277,8 +277,16 @@ export default function KarmasriPortalCaseStudy() {
             transition={{ duration: 0.6 }}
             className="text-center w-full"
           >
-            <motion.h1 
-              className="font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 drop-shadow-lg px-2"
+           <motion.h1 
+              className="
+                font-bold
+                text-3xl sm:text-4xl md:text-6xl lg:text-8xl
+                leading-tight sm:leading-tight lg:leading-none
+                mb-3 sm:mb-6
+                px-2
+                text-center
+                break-words
+              "
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -287,6 +295,7 @@ export default function KarmasriPortalCaseStudy() {
                 KARMASRI
               </span>
             </motion.h1>
+
             
             <motion.p 
               className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto mb-6 sm:mb-8 leading-relaxed drop-shadow-lg px-2 sm:px-4"
@@ -305,7 +314,7 @@ export default function KarmasriPortalCaseStudy() {
               transition={{ delay: 0.6, duration: 0.5 }}
               className="mt-8 sm:mt-12"
             >
-              <div className="inline-flex items-start sm:items-center gap-3 px-6 py-3 rounded-2xl bg-primary/5 backdrop-blur-sm border border-ring/50 hover:border-ring transition-all duration-300">
+              {/* <div className="inline-flex items-start sm:items-center gap-3 px-6 py-3 rounded-2xl bg-primary/5 backdrop-blur-sm border border-ring/50 hover:border-ring transition-all duration-300">
                 <div className="flex flex-col">
                   <div className="flex gap-3">
                     <Shield className="w-4 h-4 text-primary mt-0.9" />
@@ -317,7 +326,7 @@ export default function KarmasriPortalCaseStudy() {
                     Live platform access restricted
                   </span>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </motion.div>
         </div>        
