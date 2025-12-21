@@ -17,70 +17,90 @@ export default function WayanadTownshipPortalCaseStudy() {
       alt: "Wayanad Township Portal",
       title: "Wayanad Township Portal",
       category: "all",
-      features: ["Home"]
+      features: ["Home"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/gallery.webp",
       alt: "Gallery",
       title: "Gallery",
       category: "interface",
-      features: ["Image Gallery", "Media Display"]
+      features: ["Image Gallery", "Media Display"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/login_1.webp",
       alt: "Login",
       title: "Login Page",
       category: "authentication",
-      features: ["Sponsor/Official Login", "OTP Login","Google Sign-In"]
+      features: ["Sponsor/Official Login", "OTP Login","Google Sign-In"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/piu_dashboard.webp",
       alt: "Admin Dashboard",
       title: "Admin Dashboard",
       category: "dashboard",
-      features: ["Cards", "Charts", "Progress", "Sponsorship details", "Donation Management"]
+      features: ["Cards", "Charts", "Progress", "Sponsorship details", "Donation Management"],
+      width: 1920,
+      height: 1080
     },
        {
       src: "/images/wayanad_project/sponsorship_dashboard.webp",
       alt: "Sponsor Dashboard",
       title: "Sponsor Dashboard",
       category: "dashboard",
-      features: [ "Sponsorship options", "Sponsorship history", "Cards", "Data tables"]
+      features: [ "Sponsorship options", "Sponsorship history", "Cards", "Data tables"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/sponsorship_details.webp",
       alt: "Payment Details",
       title: "Payment Details",
       category: "interface",
-      features: ["Transaction History", "Status Tracking", "Filters", "Pagination"]
+      features: ["Transaction History", "Status Tracking", "Filters", "Pagination"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/house_sponsorship.webp",
       alt: "House Sponsorship",
       title: "House Sponsorship",
       category: "interface",
-      features: ["House Details", "Payment Methods", "Add to Cart"]
+      features: ["House Details", "Payment Methods", "Add to Cart"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/house_form.webp",
       alt: "House Sponsorship Form",
       title: "House Sponsorship Form",
       category: "forms",
-      features: ["Dynamic Fields", "Validation", "Installment Options"]
+      features: ["Dynamic Fields", "Validation", "Installment Options"],
+      width: 1920,
+      height: 1080
     },
     {
       src: "/images/wayanad_project/monetary_form.webp",
       alt: "Monetary Sponsorship",
       title: "Monetary Sponsorship Form",
       category: "forms",
-      features: [ "Payment Options", "Confirmation", "Preview"]
+      features: [ "Payment Options", "Confirmation", "Preview"],
+      width: 1920,
+      height: 1080
     },
      {
       src: "/images/wayanad_project/house_installment.webp",
       alt: "House Sponsorship",
       title: "House Installment Details",
       category: "interface",
-      features: [ "installment Options", "Transaction Details", "Reminders"]
+      features: [ "installment Options", "Transaction Details", "Reminders"],
+      width: 1920,
+      height: 1080
     }
   ];
 
@@ -222,15 +242,21 @@ export default function WayanadTownshipPortalCaseStudy() {
 
             {/* Image Container */}
             <div className="relative w-full h-full flex items-center justify-center p-4">
-              <motion.img
+              <motion.div
                 key={selectedImage}
-                src={screenshots[selectedImage].src}
-                alt={screenshots[selectedImage].alt}
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                className="relative w-full h-full max-w-full max-h-full"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-              />
+              >
+                <Image
+                  src={screenshots[selectedImage].src}
+                  alt={screenshots[selectedImage].alt}
+                  fill
+                  className="object-contain rounded-lg shadow-2xl"
+                  sizes="90vw"
+                />
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -246,6 +272,8 @@ export default function WayanadTownshipPortalCaseStudy() {
             fill
             className="object-cover"
             priority
+            quality={90}
+            sizes="100vw"
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-black/40 dark:bg-black/50" />
@@ -345,10 +373,15 @@ export default function WayanadTownshipPortalCaseStudy() {
               >
                 <div className="relative aspect-video overflow-hidden bg-muted">
                   {/* Actual Image */}
-                  <img
+                  <Image
                     src="/images/wayanad_project/wayanad_2.webp"
                     alt="Wayanad Portal"
+                    width={1920}
+                    height={1080}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   
                   {/* Hover Overlay */}
@@ -543,37 +576,6 @@ export default function WayanadTownshipPortalCaseStudy() {
                 ))}
               </div>
             </motion.div>
-
-            {/* Authentication & Documents */}
-            {/* <motion.div
-              variants={cardVariants}
-              whileHover="hover"
-              className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-secondary/10 hover:bg-secondary/20 border border-secondary/30 shadow-sm w-full"
-            >
-              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <div className="p-1.5 sm:p-2 rounded-lg bg-secondary/10">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
-                </div>
-                <h3 className="text-md sm:text-2xl font-semibold overflow-hidden">Authentication & Documents</h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                Implemented secure authentication and automated document generation system.
-              </p>
-              <div className="space-y-2 sm:space-y-3">
-                {[
-                  "Google Sign-In integration",
-                  "Secure session handling",
-                  "Automated PDF receipt generation",
-                  "Sponsorship certificate creation",
-                  "Document download and sharing"
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-2 sm:gap-3">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-secondary rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
-                    <span className="text-foreground text-sm sm:text-base">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div> */}
           </motion.div>
         </div>
       </section>
@@ -728,10 +730,14 @@ export default function WayanadTownshipPortalCaseStudy() {
                   {/* Image Container */}
                   <div className="relative aspect-video overflow-hidden bg-muted w-full">
                     {/* Actual Image */}
-                    <img
+                    <Image
                       src={screenshot.src}
                       alt={screenshot.title}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     
                     {/* Fallback/Placeholder */}
@@ -789,27 +795,6 @@ export default function WayanadTownshipPortalCaseStudy() {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Gallery Navigation Help */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mt-8 sm:mt-12 w-full"
-          >
-            <p className="text-xs sm:text-sm text-muted-foreground flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-              <span className="flex items-center gap-1">
-                <ClickIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-                Click to explore
-              </span>
-              •
-              <span className="flex items-center gap-1">
-                <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                Navigate with arrows
-              </span>
-            </p>
-          </motion.div> */}
         </div>
       </section>
 
