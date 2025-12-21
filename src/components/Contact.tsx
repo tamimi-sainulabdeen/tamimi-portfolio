@@ -212,14 +212,14 @@ export function Contact() {
     },
     {
       icon: Phone,
-      label: "UAE Phone",
+      label: "Phone",
       value: personalInfo.uaePhone || "+971 XX XXX XXXX", // Add to your portfolio-data
       href: `tel:${personalInfo.uaePhone || "+971XXXXXXXXXX"}`,
       onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.uaePhone || "+971 XX XXX XXXX", "UAE"),
     },
     {
       icon: Phone,
-      label: "Indian Phone",
+      label: "Whatsapp (India)",
       value: personalInfo.indiaPhone || "+91 XX XXX XXXX", // Add to your portfolio-data
       href: `tel:${personalInfo.indiaPhone || "+91XXXXXXXXXX"}`,
       onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.indiaPhone || "+91 XX XXX XXXX", "Indian"),
