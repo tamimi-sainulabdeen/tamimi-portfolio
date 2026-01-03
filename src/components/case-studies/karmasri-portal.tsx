@@ -778,7 +778,7 @@ export default function KarmasriPortalCaseStudy() {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16 w-full"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Interface Gallery</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 gradient-text">Interface Gallery</h2>
             <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-2">
               Explore the key interfaces developed for this portal
             </p>
