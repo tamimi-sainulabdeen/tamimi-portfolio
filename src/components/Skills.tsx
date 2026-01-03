@@ -56,50 +56,51 @@ const skillsData = [
 const otherSkillsData = [
 
   {
-    icon: Palette,
-    title: "UI/UX Practices",
-    description: "Applying layout, spacing, hierarchy, and accessibility principles."
-  },
-  {
-    icon: Workflow,
-    title: "State Management",
-    description: "Ensuring UI data flows smoothly and updates consistently."
-  },
-  {
-    icon: Smartphone,
-    title: "Responsive Mobile First Design",
-    description: "Creating layouts that adapt beautifully to all screen sizes."
-  },
-  {
-    icon: Boxes,
-    title: "Component Architecture",
-    description: "Building modular, reusable, and maintainable UI components."
-  },
-  {
-    icon: PlugZap,
-    title: "API Handling",
-    description: "Integrating APIs, processing responses, and reflecting the data accurately in the UI."
-  },
-  {
-    title: "Security Best Practices",
-    description: "Aware of secure coding practices, protecting APIs, handling tokens safely, preventing XSS/CSRF, and following OWASP guidelines.",
-    icon: ShieldCheck, 
-  },
-  {
-    icon: Bug,
-    title: "Debugging",
-    description: "Identifying and fixing issues using browser DevTools and systematic debugging methods."
-  },
-  {
-    icon: Globe,
-    title: "Cross-Browser Support",
-    description: "Ensuring consistent UI behavior across modern browsers."
-  },
-  {
-    icon: Gauge,
-    title: "Performance Optimization",
-    description: "Improving front-end performance with memoization, lazy loading, and image optimization."
-  },
+  icon: Palette,
+  title: "UI/UX Practices",
+  description: "Applying layout, spacing, visual hierarchy, and accessibility to create intuitive interfaces."
+},
+{
+  icon: Workflow,
+  title: "State Management",
+  description: "Managing application state to ensure smooth data flow and consistent UI updates."
+},
+{
+  icon: Smartphone,
+  title: "Responsive, Mobile-First Design",
+  description: "Designing flexible layouts that adapt seamlessly across all screen sizes."
+},
+{
+  icon: Boxes,
+  title: "Component Architecture",
+  description: "Building modular, reusable, and maintainable UI components for scalable applications."
+},
+{
+  icon: PlugZap,
+  title: "API Integration",
+  description: "Integrating REST APIs, handling responses, and accurately reflecting data in the UI."
+},
+{
+  icon: ShieldCheck,
+  title: "Security Best Practices",
+  description: "Following secure coding practices, safe token handling, XSS/CSRF prevention, and OWASP guidelines."
+},
+{
+  icon: Bug,
+  title: "Debugging & Troubleshooting",
+  description: "Identifying and resolving issues using browser DevTools and systematic debugging techniques."
+},
+{
+  icon: Globe,
+  title: "Cross-Browser Compatibility",
+  description: "Ensuring consistent UI behavior across modern browsers."
+},
+{
+  icon: Gauge,
+  title: "Performance Optimization",
+  description: "Enhancing frontend performance through memoization, lazy loading, and image optimization."
+}
+
   // {
   //   icon: TestTube,
   //   title: "Basic Testing",

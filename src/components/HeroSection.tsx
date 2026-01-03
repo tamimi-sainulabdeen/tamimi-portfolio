@@ -85,7 +85,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
 
 
             <p className="text-muted-foreground max-w-2xl text-base lg:text-lg leading-relaxed mx-auto lg:mx-0">
-              Crafting thoughtful, user-centered digital experiences that look visually appealing and feel effortless to use.
+              Designing and building clean, intuitive interfaces that deliver effortless user experiences.
             </p>
 
             {/* CTA Buttons */}
