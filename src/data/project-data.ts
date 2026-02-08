@@ -33,7 +33,7 @@ export const projectRegistry: Record<string, ProjectListing> = {
     tags: ["Next.js","React.js", "Tailwind CSS", "JavaScript", "TypeScript", "REST API", "Authentication"],
     featured: true,
     year: "2024",
-    role: "Frontend Developer",
+    role: "Front-end Developer",
     confidential: true, // Add this
     primaryButton: {
       label: "Visit Website",
@@ -53,7 +53,7 @@ export const projectRegistry: Record<string, ProjectListing> = {
     tags: ["Next.js", "JavaScript", "Tailwind CSS", "Dashboards", "Sponsorships", "Payment modes"],
     featured: true,
     year: "2024",
-    role: "Frontend Developer",
+    role: "Front-end Developer",
     primaryButton: {
       label: "Visit Website",
       url: "https://wayanadtownship.kerala.gov.in/"
