@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+
 import { HeroSection } from '@/components/HeroSection'
 import { About } from '@/components/About';
 import { Skills } from '@/components/Skills';

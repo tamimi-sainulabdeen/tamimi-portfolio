@@ -1,8 +1,8 @@
+"use client";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import { personalInfo } from "@/data/portfolio-data";
-import { Target, Globe } from "lucide-react";
 
 
 interface HeroSectionProps {
@@ -66,7 +66,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
               {personalInfo.title}
             </p>
              {/* Status Tags */}
-         <div className="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
+         {/* <div className="flex flex-wrap items-center gap-3 justify-center lg:justify-start">
             <span
               className="px-4 py-1.5 rounded-full text-sm font-medium bg-background text-secondary border border-secondary/50 backdrop-blur-md flex items-center gap-2"
             >
@@ -80,7 +80,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
               <Globe className="w-4 h-4" />
               Open to Relocation
             </span>
-          </div>
+          </div> */}
 
 
 
@@ -99,7 +99,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
                 View My Works
               </motion.button>
 
-             {/* <motion.a
+             <motion.a
                 href="/documents/Tamimi_Sainulabdeen_Resume.pdf"
                 download="Tamimi_Sainulabdeen_Resume.pdf"
                 className="px-6 py-3 rounded-xl border border-ring text-muted-foreground hover:border-primary hover:text-foreground transition-colors flex items-center gap-2 font-semibold"
@@ -108,7 +108,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
               >
                 <Download className="w-5 h-5" />
                 Download CV
-              </motion.a> */}
+              </motion.a>
 
             </div>
           </motion.div>

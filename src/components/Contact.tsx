@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { personalInfo } from "@/data/portfolio-data";
-import { SiBehance, SiGithub, SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { SiGithub, SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import { toast } from "sonner";
 
 export function Contact() {
@@ -109,7 +109,7 @@ export function Contact() {
       });
 
       if (response.ok) {
-        toast.success("Message sent successfully! I'll get back to you soon.", {
+        toast.success("Message sent successfully!", {
           id: toastId,
           duration: 5000,
         });
@@ -213,17 +213,17 @@ export function Contact() {
     {
       icon: Phone,
       label: "Phone",
-      value: personalInfo.uaePhone || "+971 XX XXX XXXX", // Add to your portfolio-data
-      href: `tel:${personalInfo.uaePhone || "+971XXXXXXXXXX"}`,
-      onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.uaePhone || "+971 XX XXX XXXX", "UAE"),
+      value: personalInfo.indiaPhone || "+971 XX XXX XXXX", // Add to your portfolio-data
+      href: `tel:${personalInfo.indiaPhone || "+971XXXXXXXXXX"}`,
+      onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.indiaPhone || "+971 XX XXX XXXX", "UAE"),
     },
-    {
-      icon: Phone,
-      label: "Whatsapp (India)",
-      value: personalInfo.indiaPhone || "+91 XX XXX XXXX", // Add to your portfolio-data
-      href: `tel:${personalInfo.indiaPhone || "+91XXXXXXXXXX"}`,
-      onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.indiaPhone || "+91 XX XXX XXXX", "Indian"),
-    },
+    // {
+    //   icon: Phone,
+    //   label: "Whatsapp (India)",
+    //   value: personalInfo.indiaPhone || "+91 XX XXX XXXX", // Add to your portfolio-data
+    //   href: `tel:${personalInfo.indiaPhone || "+91XXXXXXXXXX"}`,
+    //   onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.indiaPhone || "+91 XX XXX XXXX", "Indian"),
+    // },
     {
       icon: MapPin,
       label: "Location",
@@ -280,10 +280,10 @@ export function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold font-dancing bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
             Get In Touch
           </h2>
-          <p className="flex items-center gap-2 mx-auto max-w-fit text-sm md:text-md text-foreground/90 font-semibold">
+          {/* <p className="flex items-center gap-2 mx-auto max-w-fit text-sm md:text-md text-foreground/90 font-semibold">
             <span className="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
             Actively Seeking Opportunities <span className="ml-4 h-2 w-2 rounded-full bg-primary animate-pulse"></span>Open to Relocation
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-5 items-start">

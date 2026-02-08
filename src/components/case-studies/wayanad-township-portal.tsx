@@ -39,15 +39,15 @@ export default function WayanadTownshipPortalCaseStudy() {
       width: 1920,
       height: 1080
     },
-    {
-      src: "/images/wayanad_project/piu_dashboard.webp",
-      alt: "Admin Dashboard",
-      title: "Admin Dashboard",
-      category: "dashboard",
-      features: ["Cards", "Charts", "Progress", "Sponsorship details", "Donation Management"],
-      width: 1920,
-      height: 1080
-    },
+    // {
+    //   src: "/images/wayanad_project/piu_dashboard.webp",
+    //   alt: "Admin Dashboard",
+    //   title: "Admin Dashboard",
+    //   category: "dashboard",
+    //   features: ["Cards", "Charts", "Progress", "Sponsorship details", "Donation Management"],
+    //   width: 1920,
+    //   height: 1080
+    // },
        {
       src: "/images/wayanad_project/sponsorship_dashboard.webp",
       alt: "Sponsor Dashboard",
@@ -339,17 +339,18 @@ export default function WayanadTownshipPortalCaseStudy() {
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 gradient-text">Website Development</h2>
               <div className="space-y-3 sm:space-y-4 text-muted-foreground text-sm sm:text-base">
-                <p>
-                  As the frontend developer, I built the complete user interface for this disaster-relief platform 
-                  featuring dual sponsorship models (monetary and house), flexible payment processing (online/offline), 
-                  and comprehensive sponsor management. The system handles complex business logic including installment 
-                  payments, multiple sponsor types, and automated document generation.
-                </p>
-                <p>
-                  I developed the frontend with reusable components, implemented the design system, 
-                  and integrated with backend APIs to create a seamless user experience for administrators, 
-                  contractors, and sponsors.
-                </p>
+             <p>
+                As the frontend developer, I implemented the user interface for this disaster-relief platform,
+                supporting dual sponsorship models (monetary and housing), flexible payment flows (online/offline),
+                and comprehensive sponsor management. The UI reflects complex business rules such as installment
+                payments, multiple sponsor types, and document-related workflows.
+              </p>
+              <p>
+                I developed the frontend using reusable components, implemented the design system,
+                and focused on building clear, consistent UI experiences for administrators,
+                contractors, and sponsors.
+              </p>
+
               </div>
             </motion.div>
 

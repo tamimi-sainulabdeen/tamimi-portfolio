@@ -1,5 +1,4 @@
 "use client";
-
 import { personalInfo } from "@/data/portfolio-data";
 import { motion } from "framer-motion";
 import { SiGithub, SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";

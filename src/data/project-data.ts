@@ -27,7 +27,7 @@ export const projectRegistry: Record<string, ProjectListing> = {
     'karmasri-portal': {
     slug: "karmasri-portal",
     title: "KARMASRI Portal",
-    description: "Confidential government platform for Kerala cadre All India Services officers",
+    description: "Advanced Digital Platform for Kerala cadre All India Services officers",
     image: "/images/karmasri_project/karmasri_banner.webp",
     category: "Web",
     tags: ["Next.js","React.js", "Tailwind CSS", "JavaScript", "TypeScript", "REST API", "Authentication"],
@@ -50,7 +50,7 @@ export const projectRegistry: Record<string, ProjectListing> = {
     description: "A comprehensive relief and rehabilitation platform for communities affected by the Meppadi landslide, featuring donation management and township planning.",
     image: "images/wayanad_feature_1.webp",
     category: "Web",
-    tags: ["Next.js", "JavaScript", "Tailwind CSS", "TypeScript", "Google Sign-In", "Dashboards"],
+    tags: ["Next.js", "JavaScript", "Tailwind CSS", "Dashboards", "Sponsorships", "Payment modes"],
     featured: true,
     year: "2024",
     role: "Frontend Developer",

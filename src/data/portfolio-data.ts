@@ -7,7 +7,7 @@ export const personalInfo = {
   indiaPhone: "+91 7736792342",
   github: "https://github.com/tamimi-sainulabdeen",
   linkedin: "https://linkedin.com/in/tamimisainulabdeen",
-  location: "Dubai, United Arab Emirates",
+  location: "Thiruvananthapuram, Kerala, India",
   behance: "behance.com"
 }
 
