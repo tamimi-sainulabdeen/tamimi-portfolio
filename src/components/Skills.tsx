@@ -83,7 +83,7 @@ const otherSkillsData = [
 {
   icon: ShieldCheck,
   title: "Security Best Practices",
-  description: "Following secure coding practices, safe token handling, XSS/CSRF prevention, and OWASP guidelines."
+  description: "Following secure coding practices and handling authentication data responsibly."
 },
 {
   icon: Bug,

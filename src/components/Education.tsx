@@ -190,7 +190,7 @@ export function Education() {
                   </h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     {[                   
-                      "Consistently maintained strong academic performance throughout the program.",
+                      "Consistently maintained good academic performance throughout the program.",
                       "Actively participated in workshops, technical training sessions, and extracurricular activities.",
                       "Contributed to team projects, improving collaboration and problem-solving skills.",
                       "Completed academic projects.",

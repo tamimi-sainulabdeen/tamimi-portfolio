@@ -30,15 +30,15 @@ export default function KarmasriPortalCaseStudy() {
       width: 1920,
       height: 1080
     },
-    {
-      src: "/images/karmasri_project/forgot_password.webp",
-      alt: "Forgot Password",
-      title: "Forgot Password",
-      category: "authentication",
-      features: ["OTP-based Login", "Password Recovery", "Confirm password", "Secure Sessions"],
-      width: 1920,
-      height: 1080
-    },
+    // {
+    //   src: "/images/karmasri_project/forgot_password.webp",
+    //   alt: "Forgot Password",
+    //   title: "Forgot Password",
+    //   category: "authentication",
+    //   features: ["OTP-based Login", "Password Recovery", "Confirm password", "Secure Sessions"],
+    //   width: 1920,
+    //   height: 1080
+    // },
     {
       src: "/images/karmasri_project/officer_dashboard.webp",
       alt: "AIS Officer Dashboard",
@@ -353,9 +353,7 @@ export default function KarmasriPortalCaseStudy() {
                   <span className="font-semibold text-foreground"> General Administration Department, Government of Kerala</span>.
                 </p>
                 <p>
-                  As a frontend developer, I engineered complex modules handling sensitive officer data with 
-                  <span className="font-semibold text-foreground"> stringent validation requirements</span> and 
-                  <span className="font-semibold text-foreground"> multi-layered security protocols</span>.
+                  Worked on frontend modules that manage sensitive officer data, focusing on validation and secure data handling..
                 </p>
               </div>
 
@@ -533,7 +531,7 @@ export default function KarmasriPortalCaseStudy() {
                       <h4 className="font-semibold text-foreground mb-2">{solution.title}</h4>
                       <p className="text-muted-foreground text-sm mb-3">{solution.description}</p>
                     </div>
-                    <div className="flex flex-wrap gap-2">
+                    {/* <div className="flex flex-wrap gap-2">
                       {solution.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
@@ -542,7 +540,7 @@ export default function KarmasriPortalCaseStudy() {
                           {tech}
                         </span>
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>
@@ -902,7 +900,7 @@ export default function KarmasriPortalCaseStudy() {
       </section>
 
       {/* Skills & Technologies */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-background overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-background overflow-hidden hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

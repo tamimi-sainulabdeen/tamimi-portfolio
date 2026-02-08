@@ -2,7 +2,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ExternalLink, Calendar, Users, Layout, Smartphone, CheckCircle, Code, Palette, Component, Zap, X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ArrowLeft, ExternalLink, Users, Layout, CheckCircle, Code, Zap, X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -29,48 +29,52 @@ export default function SGOUCaseStudy() {
   const features = [
     {
       title: "Responsive Design System",
-      description: "Built a consistent and scalable design system to ensure the interface looks and functions smoothly across all screen sizes.",
+      description:
+        "Established a scalable design system that adapts seamlessly across devices, ensuring consistent usability for desktop and mobile users.",
       image: "/images/sgou_1.webp",
       points: [
-        "Mobile-first, flexible grid system",
-        "Consistent spacing, color usage, and typography",
-        "Adaptive components for different layouts",
-        "Touch-friendly controls for mobile users"
-      ]
+        "Grid-based layouts that adapt across screen sizes",
+        "Unified spacing, typography, and color usage",
+        "Components designed to scale without layout breakage",
+        "Optimized interactions for touch-based devices",
+      ],
     },
     {
-      title: "Intuitive Dashboard",
-      description: "Redesigned the dashboard layout to improve clarity, usability, and visual hierarchy with quick access to academic resources.",
+      title: "Student Dashboard Overview",
+      description:
+        "Reworked the dashboard into a single-glance overview, allowing students to quickly understand their academic status and next actions.",
       image: "/images/sgou_2.webp",
       points: [
-        "Clean and structured information architecture",
-        "Clear status indicators for semesters and registrations",
-        "Quick-access action cards for common tasks",
-        "Personalized welcome section with academic details"
-      ]
+        "Clear visibility into semester and registration status",
+        "Prioritized academic information hierarchy",
+        "Action cards for frequently used student tasks",
+        "Personalized academic summary on entry",
+      ],
     },
     {
-      title: "Student Services & Application Tracking",
-      description: "Designed a comprehensive services section with quick access to student requests and clear application status tracking.",
+      title: "Student Services & Application Workflows",
+      description:
+        "Designed task-focused service flows that help students submit requests, track applications, and access documents with minimal effort.",
       image: "/images/sgou_3.webp",
       points: [
-        "Quick-access grid for common student services",
-        "Clear application status with step-by-step progress",
-        "Downloadable documents and admission notices",
-        "Streamlined grievance and request submission"
-      ]
+        "Centralized access to commonly used student services",
+        "Step-by-step visibility into application progress",
+        "Quick access to downloadable notices and documents",
+        "Simplified grievance and request submission flow",
+      ],
     },
     {
-      title: "Academic Calendar Modal",
-      description: "Designed a simplified and easy-to-scan calendar section displaying important university updates, deadlines, and alerts.",
+      title: "Academic Calendar & Alerts",
+      description:
+        "Introduced a structured calendar view that highlights key academic dates, deadlines, and time-sensitive updates.",
       image: "/images/sgou_4.webp",
       points: [
-        "Color-coded event indicators",
-        "Clear date hierarchy and layout",
-        "Highlighted urgent updates/alerts",
-        "Easy navigation for upcoming deadlines"
-      ]
-    }
+        "Visual distinction between regular events and alerts",
+        "Easy scanning of upcoming academic deadlines",
+        "Highlighted critical announcements",
+        "Reduced chances of missing important updates",
+      ],
+    },
   ];
 
   const allImages = features.map(feature => feature.image);
@@ -313,10 +317,10 @@ export default function SGOUCaseStudy() {
                 <p>The original dashboard was outdated and difficult to navigate, causing frustration for distance learners needing quick access to academic resources.</p>
                 <ul className="space-y-2 sm:space-y-3 ml-2 sm:ml-4">
                   {[
-                    "Poor information architecture and visual hierarchy",
-                    "Non-responsive design with mobile usability issues",
-                    "Complex navigation hiding important features",
-                    "Lack of clear status indicators for academic progress"
+                    "Outdated interface that slowed down common academic tasks",
+                    "Poor information hierarchy making key data hard to locate",
+                    "Limited usability on mobile and smaller screens",
+                    "Unclear visibility into academic progress and deadlines",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
@@ -344,10 +348,10 @@ export default function SGOUCaseStudy() {
                 <p>A complete redesign with modern, mobile-first approach prioritizing usability and accessibility for all students.</p>
                 <ul className="space-y-2 sm:space-y-3 ml-2 sm:ml-4">
                   {[
-                    "Complete visual redesign with clear information hierarchy",
-                    "Fully responsive design system for all devices",
-                    "Intuitive navigation and quick-access features",
-                    "Enhanced calendar and notification systems"
+                    "Modernized interface focused on clarity and task efficiency",
+                    "Layouts optimized for both desktop and mobile usage",
+                    "Improved navigation and content prioritization",
+                    "Clear visibility into academic status and timelines",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
@@ -437,7 +441,7 @@ export default function SGOUCaseStudy() {
       </section>
 
       {/* Technical Implementation */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden hidden">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

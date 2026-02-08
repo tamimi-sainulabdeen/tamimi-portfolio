@@ -31,10 +31,10 @@ export function About() {
             className="space-y-8"
           >
             <p className="text-left max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-               I’m a front-end developer with 1+ year of experience, passionate about building
-                intuitive interfaces that integrate seamlessly with backend services.
-                I enjoy solving problems through thoughtful design, clean code, and
-                efficient integration.
+               I’m a front-end developer with 1+ year of experience, 
+               focused on building intuitive and user-friendly interfaces that work well with backend services. 
+               I enjoy solving problems through clean code, 
+               thoughtful UI implementation, and continuously improving my frontend skills.
               </p>
 
             <div className="flex gap-4">
@@ -45,9 +45,9 @@ export function About() {
               <div className="flex-1 pb-6">                
                 <h3 className="text-xl font-semibold text-foreground mb-3">Front-End Development</h3>
                 <p className="text-foreground leading-relaxed">
-                  I build responsive, high-performance user interfaces using modern frameworks,
-                  with hands-on experience in consuming REST APIs, managing application state,
-                  and handling asynchronous data to deliver dynamic user experiences.
+                  I build responsive and reliable user interfaces using modern frontend frameworks, 
+                  with hands-on experience consuming REST APIs, managing application state, 
+                  and handling asynchronous data to create dynamic user experiences.
                 </p>
               </div>
             </div>
@@ -61,9 +61,9 @@ export function About() {
               <div className="flex-1 pb-6">
                 <h3 className="text-xl font-semibold text-foreground mb-3">UI/UX Focus</h3>
                 <p className="text-foreground leading-relaxed">
-                   I apply design thinking to transform ideas into intuitive user flows and
-                    visually consistent layouts, with a strong focus on accessibility,
-                    usability, and meaningful user interactions.
+                   I translate designs and requirements into clear user flows and visually consistent layouts, 
+                   with attention to usability, 
+                   accessibility, and meaningful user interactions.
                 </p>
               </div>
             </div>
@@ -76,8 +76,8 @@ export function About() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-foreground mb-3">Problem Solver</h3>
                   <p className="text-foreground leading-relaxed">
-                    I enjoy tackling challenges through code and continuously improving my
-                    skills while exploring new technologies and frontend patterns.
+                    I enjoy tackling frontend challenges through code, learning from real-world projects, 
+                    and exploring new tools and patterns to improve the quality of my work.
                 </p>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export function About() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Image
-                  src="/images/tamimi_2.webp"
+                  src="/images/tamimi_5.webp"
                   alt="Profile picture"
                   width={320}
                   height={400}
