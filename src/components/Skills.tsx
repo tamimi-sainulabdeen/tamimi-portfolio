@@ -15,7 +15,7 @@ import {
 
 const skillsData = [
   {
-    category: "Frontend",
+    category: "Front-end",
     gradient: "from-blue-500/50 to-cyan-500/50",
     hoverGradient: "from-blue-500/30 to-cyan-500/30",
     border: "border-blue-200/50",
@@ -98,7 +98,7 @@ const otherSkillsData = [
 {
   icon: Gauge,
   title: "Performance Optimization",
-  description: "Enhancing frontend performance through memoization, lazy loading, and image optimization."
+  description: "Enhancing front-end performance through memoization, lazy loading, and image optimization."
 }
 
   // {

@@ -82,7 +82,7 @@ export default function SGOUCaseStudy() {
   const techStack = [
     { name: "Bootstrap 5", purpose: "Responsive Layout & Components" },
     { name: "Material Design for Bootstrap (MDB)", purpose: "UI Components & Design System" },
-    { name: "JavaScript", purpose: "Interactivity & Frontend Logic" },
+    { name: "JavaScript", purpose: "Interactivity & Front-end Logic" },
     { name: "CSS3", purpose: "Custom Styling & Animations" },
     { name: "HTML5", purpose: "Semantic Structure" }
   ];
@@ -452,7 +452,7 @@ export default function SGOUCaseStudy() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text font-bold mb-3 sm:mb-4">Technical Implementation</h2>
             <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-4">
-              Applied modern frontend technologies and design principles to deliver a scalable, maintainable solution
+              Applied modern front-end technologies and design principles to deliver a scalable, maintainable solution
             </p>
           </motion.div>
 
@@ -533,7 +533,7 @@ export default function SGOUCaseStudy() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text font-bold mb-4">Explore More Projects</h2>
             <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-2xl mx-auto px-4">
-              Check out my other projects and see how I approach different frontend challenges
+              Check out my other projects and see how I approach different front-end challenges
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4">

@@ -29,8 +29,8 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "Tamimi Sainulabdeen - Frontend Developer & UI/UX Designer",
-  description: "Creative frontend developer and UI/UX designer crafting beautiful, performant digital experiences",
+  title: "Tamimi Sainulabdeen - Front-end Developer & UI/UX Designer",
+  description: "Creative Front-end developer and UI/UX designer crafting beautiful, performant digital experiences",
 };
 
 export default function RootLayout({

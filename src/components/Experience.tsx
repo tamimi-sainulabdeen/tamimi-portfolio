@@ -110,7 +110,7 @@ export function Experience() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <h3 className="text-2xl font-bold text-foreground mb-2">
-                    Frontend Developer
+                    Front-end Developer
                   </h3>
                   <p className="text-secondary text-lg font-semibold">
                     Centre for Digital Innovation And Product Developement

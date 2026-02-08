@@ -65,7 +65,7 @@ export function Loader() {
                 Tamimi
               </motion.h1>
               <p className="text-muted-foreground font-sans">
-                Frontend Developer | UI/UX Designer
+                Front-end Developer | UI/UX Designer
               </p>
             </motion.div>
 

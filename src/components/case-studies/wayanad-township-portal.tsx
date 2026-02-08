@@ -340,13 +340,13 @@ export default function WayanadTownshipPortalCaseStudy() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 gradient-text">Website Development</h2>
               <div className="space-y-3 sm:space-y-4 text-muted-foreground text-sm sm:text-base">
              <p>
-                As the frontend developer, I implemented the user interface for this disaster-relief platform,
+                As the front-end developer, I implemented the user interface for this disaster-relief platform,
                 supporting dual sponsorship models (monetary and housing), flexible payment flows (online/offline),
                 and comprehensive sponsor management. The UI reflects complex business rules such as installment
                 payments, multiple sponsor types, and document-related workflows.
               </p>
               <p>
-                I developed the frontend using reusable components, implemented the design system,
+                I developed the front-end using reusable components, implemented the design system,
                 and focused on building clear, consistent UI experiences for administrators,
                 contractors, and sponsors.
               </p>
@@ -592,7 +592,7 @@ export default function WayanadTownshipPortalCaseStudy() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 gradient-text">Technical Implementation</h2>
             <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto px-2">
-              Modern frontend architecture and development approach
+              Modern front-end architecture and development approach
             </p>
           </motion.div>
 
@@ -811,7 +811,7 @@ export default function WayanadTownshipPortalCaseStudy() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">Development Outcomes</h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto px-2">
               Successfully delivered a production-ready platform that streamlined relief coordination 
-              through dual sponsorship models and flexible payment systems. The frontend architecture 
+              through dual sponsorship models and flexible payment systems. The front-end architecture 
               I built provided efficient, scalable interfaces for multiple user roles, with responsive 
               design, secure payment processing, installment management, and comprehensive sponsor workflows.
             </p>
@@ -850,7 +850,7 @@ export default function WayanadTownshipPortalCaseStudy() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl gradient-text font-bold mb-4">Explore More Projects</h2>
             <p className="text-muted-foreground text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
-              Check out my other projects and see how I approach different frontend challenges
+              Check out my other projects and see how I approach different front-end challenges
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full px-2">

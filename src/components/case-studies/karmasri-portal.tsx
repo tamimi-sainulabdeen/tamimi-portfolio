@@ -353,7 +353,7 @@ export default function KarmasriPortalCaseStudy() {
                   <span className="font-semibold text-foreground"> General Administration Department, Government of Kerala</span>.
                 </p>
                 <p>
-                  Worked on frontend modules that manage sensitive officer data, focusing on validation and secure data handling..
+                  Worked on front-end modules that manage sensitive officer data, focusing on validation and secure data handling..
                 </p>
               </div>
 
@@ -926,7 +926,7 @@ export default function KarmasriPortalCaseStudy() {
               
               {[
                 {
-                  category: "Frontend Development",
+                  category: "Front-end Development",
                   skills: ["Next.js", "React.js", "JavaScript (ES6+)", "Responsive Design", "Component Architecture"],
                   icon: Code,
                   color: "secondary"

@@ -34,7 +34,7 @@ export function About() {
                I’m a front-end developer with 1+ year of experience, 
                focused on building intuitive and user-friendly interfaces that work well with backend services. 
                I enjoy solving problems through clean code, 
-               thoughtful UI implementation, and continuously improving my frontend skills.
+               thoughtful UI implementation, and continuously improving my front-end skills.
               </p>
 
             <div className="flex gap-4">
@@ -45,7 +45,7 @@ export function About() {
               <div className="flex-1 pb-6">                
                 <h3 className="text-xl font-semibold text-foreground mb-3">Front-End Development</h3>
                 <p className="text-foreground leading-relaxed">
-                  I build responsive and reliable user interfaces using modern frontend frameworks, 
+                  I build responsive and reliable user interfaces using modern front-end frameworks, 
                   with hands-on experience consuming REST APIs, managing application state, 
                   and handling asynchronous data to create dynamic user experiences.
                 </p>
@@ -76,7 +76,7 @@ export function About() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-foreground mb-3">Problem Solver</h3>
                   <p className="text-foreground leading-relaxed">
-                    I enjoy tackling frontend challenges through code, learning from real-world projects, 
+                    I enjoy tackling front-end challenges through code, learning from real-world projects, 
                     and exploring new tools and patterns to improve the quality of my work.
                 </p>
                 </div>
