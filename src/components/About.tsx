@@ -31,10 +31,10 @@ export function About() {
             className="space-y-8"
           >
             <p className="text-left max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-               I’m a front-end developer with 1+ year of experience, 
-               focused on building intuitive and user-friendly interfaces that work well with backend services. 
-               I enjoy solving problems through clean code, 
-               thoughtful UI implementation, and continuously improving my front-end skills.
+               I’m a front-end developer with 1+ year of experience building intuitive,
+                scalable, and user-friendly interfaces that integrate seamlessly with backend services.
+                I focus on writing clean, maintainable code and continuously improving performance,
+                usability, and overall user experience.
               </p>
 
             <div className="flex gap-4">
@@ -74,10 +74,10 @@ export function About() {
                   <div className="w-3 h-3 bg-primary rounded-full mt-2"></div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">Problem Solver</h3>
+                 
                   <p className="text-foreground leading-relaxed">
-                    I enjoy tackling front-end challenges through code, learning from real-world projects, 
-                    and exploring new tools and patterns to improve the quality of my work.
+                   I am passionate about tackling front-end challenges through code,
+                   learning from real-world projects, and exploring new tools and patterns to improve the quality of my work.
                 </p>
                 </div>
               </div>

@@ -86,11 +86,6 @@ const otherSkillsData = [
   description: "Following secure coding practices and handling authentication data responsibly."
 },
 {
-  icon: Bug,
-  title: "Debugging & Troubleshooting",
-  description: "Identifying and resolving issues using browser DevTools and systematic debugging techniques."
-},
-{
   icon: Globe,
   title: "Cross-Browser Compatibility",
   description: "Ensuring consistent UI behavior across modern browsers."

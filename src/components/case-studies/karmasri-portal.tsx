@@ -584,7 +584,7 @@ export default function KarmasriPortalCaseStudy() {
                 <h3 className="text-md sm:text-2xl font-semibold overflow-hidden">Authentication System</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                Complete secure authentication module with multiple verification layers and session management.
+                Complete secure authentication module with verification layers and session management.
               </p>
               <div className="space-y-2 sm:space-y-3">
                 {[
@@ -592,7 +592,8 @@ export default function KarmasriPortalCaseStudy() {
                   "OTP-based login & password reset",
                   "Automatic session timeout handling",
                   "Password expiry enforcement",
-                  "Secure logout mechanisms"
+                  "Protected Route Handling",
+                  "Client-side validation and error feedback"
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2 sm:gap-3">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
@@ -623,7 +624,6 @@ export default function KarmasriPortalCaseStudy() {
                   "Data integration from an external source(SPARK platform) to auto-populate fields",
                   "Conditional field rendering based on data availability",
                   "Field-level priority logic (external data vs Admin entry vs manual entry)",
-                  "Conditional section enabling/disabling based on submit status",
                   "Real-time validation feedback",
                   "Submit, Verification, Return for correction and Approval workflows",
                   "Consolidated Preview and PDF generation"
@@ -701,8 +701,8 @@ export default function KarmasriPortalCaseStudy() {
               </div>
             </motion.div>
 
-            {/* Profile Management */}
-            <motion.div
+              {/* Profile Management */}
+            {/* <motion.div
               variants={cardVariants}
               whileHover="hover"
               className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-primary/10 hover:bg-primary/20 border border-primary/30 shadow-sm w-full"
@@ -730,10 +730,10 @@ export default function KarmasriPortalCaseStudy() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* UI/UX & Component System */}
-            <motion.div
+            {/* <motion.div
               variants={cardVariants}
               whileHover="hover"
               className="p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-secondary/10 hover:bg-secondary/20 border border-secondary/30 shadow-sm w-full"
@@ -751,7 +751,6 @@ export default function KarmasriPortalCaseStudy() {
                 {[
                   "Reusable React components for consistent design",
                   "Mobile-first responsive design for officers",
-                  "Accessibility-compliant interface components",
                   "Loading states and error handling patterns",
                   "Intuitive navigation and information architecture",
                   "Performance-optimized component rendering"
@@ -762,7 +761,7 @@ export default function KarmasriPortalCaseStudy() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </section>
