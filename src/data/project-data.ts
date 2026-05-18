@@ -34,10 +34,10 @@ export const projectRegistry: Record<string, ProjectListing> = {
     featured: true,
     year: "2024",
     role: "Front-end Developer",
-    confidential: true, // Add this
+    confidential: false,
     primaryButton: {
       label: "Visit Website",
-      url: "#"
+      url: "https://karmasri.kerala.gov.in/"
     },
     secondaryButton: {
       label: "Know More",

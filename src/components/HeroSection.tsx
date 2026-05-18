@@ -99,7 +99,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
                 View My Works
               </motion.button>
 
-             <motion.a
+             {/* <motion.a
                 href="/documents/Tamimi_Sainulabdeen_Resume.pdf"
                 download="Tamimi_Sainulabdeen_Resume.pdf"
                 className="px-6 py-3 rounded-xl border border-ring text-muted-foreground hover:border-primary hover:text-foreground transition-colors flex items-center gap-2 font-semibold"
@@ -108,7 +108,7 @@ export function HeroSection({ onScrollToProjects }: HeroSectionProps) {
               >
                 <Download className="w-5 h-5" />
                 Download CV
-              </motion.a>
+              </motion.a> */}
 
             </div>
           </motion.div>

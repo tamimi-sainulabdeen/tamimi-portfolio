@@ -314,19 +314,17 @@ export default function KarmasriPortalCaseStudy() {
               transition={{ delay: 0.6, duration: 0.5 }}
               className="mt-8 sm:mt-12"
             >
-              {/* <div className="inline-flex items-start sm:items-center gap-3 px-6 py-3 rounded-2xl bg-primary/5 backdrop-blur-sm border border-ring/50 hover:border-ring transition-all duration-300">
-                <div className="flex flex-col">
-                  <div className="flex gap-3">
-                    <Shield className="w-4 h-4 text-primary mt-0.9" />
-                    <span className="text-foreground font-semibold leading-tight mb-2">
-                      Confidential Project
-                    </span>
-                  </div>
-                  <span className="text-xs text-primary leading-none">
-                    Live platform access restricted
-                  </span>
-                </div>
-              </div> */}
+              <div className="inline-flex items-center gap-3">
+                <a
+                  href="https://karmasri.kerala.gov.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all duration-200"
+                >
+                  Visit Live Website
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         </div>        

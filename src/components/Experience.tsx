@@ -74,7 +74,7 @@ export function Experience() {
                     whileHover={{ x: 5 }}
                   >
                     <Calendar className="w-4 h-4" />
-                    <span>2024 - 2025</span>
+                    <span>SEP 2024 - APR 2026</span>
                   </motion.div>
                   <motion.div 
                     className="flex items-center gap-2 text-sm text-muted-foreground"

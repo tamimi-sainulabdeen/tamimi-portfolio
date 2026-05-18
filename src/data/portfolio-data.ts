@@ -3,11 +3,11 @@ export const personalInfo = {
   name: "Tamimi Sainulabdeen", 
   title: "Front-End Developer | UI Designer",
   email: "tamimi.s2013@gmail.com",
-  uaePhone: "+971 521035057",
+  uaePhone: "+971 563092923",
   indiaPhone: "+91 7736792342",
   github: "https://github.com/tamimi-sainulabdeen",
   linkedin: "https://linkedin.com/in/tamimisainulabdeen",
-  location: "Thiruvananthapuram, Kerala, India",
+  location: "Dubai, UAE ",
   behance: "behance.com"
 }
 

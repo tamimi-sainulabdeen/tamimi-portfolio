@@ -31,7 +31,7 @@ export function About() {
             className="space-y-8"
           >
             <p className="text-left max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-               I’m a front-end developer with 1+ year of experience building intuitive,
+               I’m a front-end developer with hands-on experience building intuitive,
                 scalable, and user-friendly interfaces that integrate seamlessly with backend services.
                 I focus on writing clean, maintainable code and continuously improving performance,
                 usability, and overall user experience.
