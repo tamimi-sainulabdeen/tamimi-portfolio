@@ -213,7 +213,7 @@ export function Contact() {
     {
       icon: Phone,
       label: "Phone",
-      value: personalInfo.uaePhone || "+971 XX XXX XXXX", // Add to your portfolio-data
+      value: personalInfo.indiaPhone || "+971 XX XXX XXXX", // Add to your portfolio-data
       href: `tel:${personalInfo.indiaPhone || "+971XXXXXXXXXX"}`,
       onClick: (e: React.MouseEvent) => handlePhoneClick(e, personalInfo.indiaPhone || "+971 XX XXX XXXX", "UAE"),
     },
